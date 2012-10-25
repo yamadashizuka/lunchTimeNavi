@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: 和食
+
+two:
+  id: 2
+  name: 中華
+
+three:
+  id: 3
+  name: フレンチ
+
+four:
+  id: 4
+  name: イタリアン
+
+five:
+  id: 5
+  name: インド
+
+six:
+  id: 6
+  name: ファーストフード
+
+seven:
+  id: 7
+  name: カフェ
+
+eight:
+  id: 8
+  name: ファミレス

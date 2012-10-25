@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+fujikawa:
+  id: 1
+  name: 藤川　輝昭
+  email: fujikawa_teruaki@ogis-ri.co.jp
+
+sankai:
+  id: 2
+  name: 山海　一剛
+  email: Sankai_Kazutaka@ogis-ri.co.jp
+
+shioi:
+  id: 3
+  name: 塩井　義二
+  email: shioi_yoshini@ogis-ri.co.jp
+
+shin:
+  id: 4
+  name: 新　信幸
+  email: Shin_Nobuyuki@ogis-ri.co.jp
+
+yada:
+  id: 5
+  name: 矢田　恵子
+  email: Yada_Keiko@ogis-ri.co.jp
+
+yamada:
+  id: 6
+  name: 山田　静香
+  email: Yamada_Shizuka@ogis-ri.co.jp

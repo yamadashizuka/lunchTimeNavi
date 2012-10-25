@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: ★☆☆
+  value: 1
+
+two:
+  id: 2
+  name: ★★☆
+  value: 2
+
+three:
+  id: 3
+  name: ★★★
+  value: 3

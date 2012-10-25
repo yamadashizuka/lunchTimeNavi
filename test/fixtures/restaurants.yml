@@ -1,0 +1,58 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: "四川料理 御馥"
+  address: "大阪府豊中市新千里東町1-5-2 セルシー"
+  telephoneNumber: "06-6833-7917"
+  reservation: true
+  memo: "定休日は、毎月第1月曜日 12/31・1/1"
+  url: "http://www.huangs-dining.com/"
+  email: ""
+  sundayUp: true
+  mondayUp: true
+  tuesdayUp: true
+  wednesdayUp: true
+  thursdayUp: true
+  fridayUp: true
+  saturdayUp: true
+  startTime: 2012-10-18 11:00:00
+  endTime: 2012-10-18 15:00:00
+
+two:
+  id: 2
+  name: "Namaste Taj Mahal千里中央店"
+  address: "大阪府豊中市新千里東町1-5-2 セルシー"
+  telephoneNumber: "050-5816-6468"
+  reservation: true
+  memo: "辛口が、普通になったり激辛になったり、日によって少しばらつきがあるのがご愛嬌。ナンがおいしい。"
+  url: ""
+  email: ""
+  sundayUp: true
+  mondayUp: true
+  tuesdayUp: true
+  wednesdayUp: true
+  thursdayUp: true
+  fridayUp: true
+  saturdayUp: true
+  startTime: 2012-10-18 11:00:00
+  endTime: 2012-10-18 14:30:00
+
+three:
+  id: 3
+  name: "おらが蕎麦　SENRIセルシー店"
+  address: "大阪府豊中市新千里東町1-5-2 セルシー"
+  telephoneNumber: "06-6835-5801"
+  reservation: false
+  memo: "グルメ杵屋系列のそば専門店"
+  url: "http://www.gourmet-kineya.co.jp/search/list.php?gid=3"
+  email: ""
+  sundayUp: true
+  mondayUp: true
+  tuesdayUp: true
+  wednesdayUp: true
+  thursdayUp: true
+  fridayUp: true
+  saturdayUp: true
+  startTime: 2012-10-18 11:00:00
+  endTime: 2012-10-18 22:00:00

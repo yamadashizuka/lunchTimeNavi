@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <b>TelephoneNumber:</b>
+  <%= @restaurant.telephoneNumber %>
+</p>
+
+<p>
+  <b>Reservation:</b>
+  <%= @restaurant.reservation %>
+</p>
+
+<p>
+  <b>Memo:</b>
+  <%= @restaurant.memo %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @restaurant.url %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @restaurant.email %>
+</p>
+
+<p>
+  <b>Sun:</b>
+  <%= @restaurant.sundayUp %>
+</p>
+
+<p>
+  <b>Mon:</b>
+  <%= @restaurant.mondayUp %>
+</p>
+
+<p>
+  <b>Tue:</b>
+  <%= @restaurant.tuesdayUp %>
+</p>
+
+<p>
+  <b>Wed:</b>
+  <%= @restaurant.wednesdayUp %>
+</p>
+
+<p>
+  <b>Thu:</b>
+  <%= @restaurant.thursdayUp %>
+</p>
+
+<p>
+  <b>Fri:</b>
+  <%= @restaurant.fridayUp %>
+</p>
+
+<p>
+  <b>Sat:</b>
+  <%= @restaurant.saturdayUp %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%= @restaurant.startTime %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%= @restaurant.endTime %>
+</p>
+
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>
