@@ -5,6 +5,12 @@ LunchTimeNavi::Application.routes.draw do
 
   resources :restaurants
 
+  resources :lunch_comments
+
+  resources :genres
+
+  resources :lunches
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
