@@ -1,4 +1,8 @@
 LunchTimeNavi::Application.routes.draw do
+  resources :genres
+
+  resources :lunches
+
   resources :ratings
 
   resources :users
