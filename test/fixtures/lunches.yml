@@ -1,20 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  id: 1
-  name: 牛肉そば
-  price: 580
-  genre_id: 1
-  restaurant_id: 3
+  name: MyString
+  price: 1
+
 two:
-  id: 2
-  name: ぶっかけそば
-  price: 500
-  genre_id: 1
-  restaurant_id: 3
-three:
-  id: 3
-  name: ざるそば
-  price: 450
-  genre_id: 1
-  restaurant_id: 3
+  name: MyString
+  price: 1
