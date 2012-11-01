@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Launch coment text:</b>
+  <%= @launch_coment.launch_coment_text %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @launch_coment.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_launch_coment_path(@launch_coment) %> |
+<%= link_to 'Back', launch_coments_path %>
