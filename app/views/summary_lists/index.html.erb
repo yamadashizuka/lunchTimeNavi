@@ -1,0 +1,78 @@
+<h1>Listing summaryLists</h1>
+
+<table>
+
+  <% @ary.each do |restaurant, lunch, lunch_comment| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <td class="info_restaurant">
+        <dl>
+          <dt><%= truncate(restaurant.name, {:length => 80}) %></dt>
+          <dd><%= truncate(restaurant.address, {:length => 80}) %></dd>
+          <dd><%= restaurant.startTime.strftime('%H:%M') %> ～ <%= restaurant.endTime.strftime('%H:%M') %></dd>
+        </dl>
+      </td>
+      <td class="list_actions">
+        <%= link_to 'Show', restaurant %><br />
+        <%= link_to 'Edit', edit_restaurant_path(restaurant) %><br />
+      </td>
+      <td class="info_lunch">
+        <dl>
+          <% if lunch.nil? %>
+            <dt>nothing</dt>
+          <% else %>
+            <dt><%= truncate(lunch.name, {:length => 60}) %></dt>
+            <dd><%= lunch.genre.name %></dd>
+            <dd><%= number_to_currency(lunch.price, :unit => '円', :precision =>0, :format => '%n%u') %></dd>
+          <% end %>
+        <dl>
+      </td>
+      <td class="list_actions">
+        <% if lunch.nil? %>
+          <%= link_to 'New', new_lunch_path %><br />
+        <% else %>
+          <%= link_to 'Show', lunch %><br />
+          <%= link_to 'Edit', edit_lunch_path(lunch) %><br />
+<%
+=begin
+%>
+          <%= link_to 'New', new_lunch_path %><br />
+<%
+=end
+%>
+          <%= link_to 'New', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
+
+        <% end %>
+      </td>
+      <td class="info_lunch_comment">
+        <dl>
+        <% if lunch_comment.nil? %>
+          <dt>nothing</dt>
+        <% else %>
+          <dt>評価  <%= lunch_comment.rating.name %></dt>
+          <dd><%= truncate(lunch_comment.name, {:length => 50}) %></dd>
+          <dd><%= truncate(lunch_comment.text, {:length => 60}) %></dd>
+        <% end %>
+        <dl>
+      </td>
+      <td class="list_actions">
+        <% if lunch.nil? %>
+        <% else %>
+          <% if lunch_comment.nil? %>
+            <%= link_to 'New', new_lunch_comment_path %><br />
+          <% else %>
+            <%= link_to 'Show', lunch_comment %><br />
+            <%= link_to 'Edit', edit_lunch_comment_path(lunch_comment) %><br />
+<%
+=begin
+%>
+            <%= link_to 'New', new_lunch_comment_path %><br />
+<%
+=end
+%>
+            <%= link_to 'New', {:controller => "lunch_comments", :action => "new2", :id => lunch.id} %><br />
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

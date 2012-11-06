@@ -4,6 +4,7 @@
   <tr>
     <th>Text</th>
     <th>Name</th>
+    <th>Rating</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= lunch_comment.text %></td>
     <td><%= lunch_comment.name %></td>
+    <td><%= lunch_comment.rating.name %></td>
     <td><%= link_to 'Show', lunch_comment %></td>
     <td><%= link_to 'Edit', edit_lunch_comment_path(lunch_comment) %></td>
     <td><%= link_to 'Destroy', lunch_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

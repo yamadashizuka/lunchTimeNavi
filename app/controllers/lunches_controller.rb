@@ -25,7 +25,9 @@ class LunchesController < ApplicationController
   # GET /lunches/new.json
   def new
     @lunch = Lunch.new
-
+    @genres = Genre.all
+    @restaurants = Restaurant.all
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @lunch }
@@ -35,6 +37,8 @@ class LunchesController < ApplicationController
   # GET /lunches/1/edit
   def edit
     @lunch = Lunch.find(params[:id])
+    @genres = Genre.all
+    @restaurants = [ @lunch.restaurant ]
   end
 
   # POST /lunches
@@ -80,4 +84,16 @@ class LunchesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def new2
+    @lunch = Lunch.new
+    @genres = Genre.all
+    @restaurants = [ Restaurant.find(params[:id]) ]
+
+    respond_to do |format|
+      format.html # new2.html.erb
+      format.json { render json: @lunch }
+    end
+  end
+  
 end
