@@ -1,4 +1,0 @@
-rails generate scaffold lunch name:string price:integer
-
-rails generate scaffold genre name:string
-
