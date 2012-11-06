@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Text:</b>
+  <%= @lunch_comment.text %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @lunch_comment.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_lunch_comment_path(@lunch_comment) %> |
+<%= link_to 'Back', lunch_comments_path %>
