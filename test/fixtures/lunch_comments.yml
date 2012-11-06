@@ -1,9 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  text: MyString
-  name: MyString
+  id: 1
+  text: ご飯自体は、あまりおいしくないが、そばが合格。ただいま、白ご飯サービス中。
+  rating_id: 1
+  name: 塩井 義二
+  lunch_id: 1
 
 two:
-  text: MyString
-  name: MyString
+  id: 2
+  text: 超リーズナブル
+  rating_id: 2
+  name: 塩井 義二
+  lunch_id: 2
+
+three:
+  id: 3
+  text: 超リーズナブル
+  rating_id: 3
+  name: 塩井 義二
+  lunch_id: 3

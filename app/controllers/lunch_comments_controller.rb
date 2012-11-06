@@ -25,6 +25,7 @@ class LunchCommentsController < ApplicationController
   # GET /lunch_comments/new.json
   def new
     @lunch_comment = LunchComment.new
+    @ratings = Rating.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class LunchCommentsController < ApplicationController
   # GET /lunch_comments/1/edit
   def edit
     @lunch_comment = LunchComment.find(params[:id])
+    @ratings = Rating.all
   end
 
   # POST /lunch_comments
@@ -80,4 +82,16 @@ class LunchCommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def new2
+    @lunch_comment = LunchComment.new
+    @lunches = [ Lunch.find(params[:id]) ]
+    @ratings = Rating.all
+
+    respond_to do |format|
+      format.html # new2.html.erb
+      format.json { render json: @lunch_comment }
+    end
+  end
+
 end

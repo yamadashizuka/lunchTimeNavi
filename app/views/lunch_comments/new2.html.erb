@@ -1,3 +1,9 @@
+<h1>New lunch_comment</h1>
+
+<div>
+  <%= @lunches[0].restaurant.name %>
+</div>
+
 <%= form_for(@lunch_comment) do |f| %>
   <% if @lunch_comment.errors.any? %>
     <div id="error_explanation">
@@ -12,18 +18,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_field :text %>
+    <%= f.label :lunch %><br />
+    <%= f.collection_select( :lunch_id, @lunches, :id, :name) %>
   </div>
+
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
   </div>
   <div class="field">
     <%= f.label :rating %><br />
     <%= f.collection_select( :rating_id, @ratings, :id, :name ) %>
   </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, { :size => 60, :maxlength => 256 } %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Back', summary_lists_path %>

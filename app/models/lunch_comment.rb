@@ -1,3 +1,5 @@
 class LunchComment < ActiveRecord::Base
-  attr_accessible :name, :text
+  belongs_to :rating
+  belongs_to :lunch
+  attr_accessible :name, :text, :lunch_id, :rating_id
 end

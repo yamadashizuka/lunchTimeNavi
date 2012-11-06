@@ -22,16 +22,26 @@ ActiveRecord::Schema.define(:version => 20121106045806) do
   create_table "lunch_comments", :force => true do |t|
     t.string   "text"
     t.string   "name"
+    t.integer  "lunch_id"
+    t.integer  "rating_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  add_index "lunch_comments", ["lunch_id"], :name => "index_lunch_comments_on_lunch_id"
+  add_index "lunch_comments", ["rating_id"], :name => "index_lunch_comments_on_rating_id"
+
   create_table "lunches", :force => true do |t|
     t.string   "name"
     t.integer  "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "genre_id"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
+
+  add_index "lunches", ["genre_id"], :name => "index_lunches_on_genre_id"
+  add_index "lunches", ["restaurant_id"], :name => "index_lunches_on_restaurant_id"
 
   create_table "ratings", :force => true do |t|
     t.string   "name"
