@@ -19,8 +19,19 @@ ActiveRecord::Schema.define(:version => 20121105080230) do
     t.datetime "updated_at", :null => false
   end
 
+<<<<<<< HEAD
   create_table "lunch_comments", :force => true do |t|
     t.string   "text"
+=======
+  create_table "launch_coments", :force => true do |t|
+    t.text     "launch_coment_text"
+    t.string   "name"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "lunches", :force => true do |t|
+>>>>>>> nagahashi/branch-A
     t.string   "name"
     t.integer  "lunch_id"
     t.integer  "rating_id"
@@ -76,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20121105080230) do
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "password"
   end
 
 end

@@ -1,0 +1,36 @@
+<html>
+<body>
+<form action="newUserRegistered" method="get">
+
+<h1>らいんちたいむなび ユーザー登録画面</h1>
+<br>
+
+<font color="red"><%= @message %></font>
+
+
+<table>
+  <tr>
+    <td>ユーザID</td>
+    <td><input name="username"  type="text" value="<%= session[:username] %>"></td>
+  </tr>
+  <tr>
+    <td>パスワード</td>
+    <td><input name="pass1"  type="password"></td>
+  </tr>
+  <tr>
+    <td>パスワード再入力</td>
+    <td><input name="pass2"  type="password"></td>
+  </tr>
+  <tr>
+    <td>メールアドレス</td>
+    <td><input name="email"  type="text"></td>
+  </tr>
+  <tr>
+    <td><input name="signupButton" type="submit" value="Sign Up an new user"></td>
+  </tr>
+</table>
+</form>
+
+
+</body>
+</html>
