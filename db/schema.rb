@@ -11,12 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121026060019) do
+ActiveRecord::Schema.define(:version => 20121105080230) do
 
   create_table "genres", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "launch_coments", :force => true do |t|
+    t.text     "launch_coment_text"
+    t.string   "name"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "lunches", :force => true do |t|
@@ -59,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20121026060019) do
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "password"
   end
 
 end
