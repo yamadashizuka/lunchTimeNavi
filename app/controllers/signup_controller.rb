@@ -25,7 +25,7 @@ class SignupController < ApplicationController
         # 登録があれば、ユーザオブジェクトをセッションに保管して、検索条件画面へ
         puts '* found *' + currentUser.class.name
         session[:currentUser] = currentUser
-        redirect_to :controller => 'lunches', :action => 'index'        # 仮実装(本当はランチ情報検索条件画面にリダイレクト）
+        redirect_to :controller => 'summary_lists', :action => 'index'        # 仮実装(本当はランチ情報検索条件画面にリダイレクト）
       end
     end
   end
@@ -70,6 +70,6 @@ class SignupController < ApplicationController
     session[:currentUser] 	= currentUser
     currentUser.save()
     
-    redirect_to :controller => 'lunches', :action => 'index'        # 仮実装(本当はランチ情報検索条件画面にリダイレクト）
+    redirect_to :controller => 'summary_lists', :action => 'index'        # 仮実装(本当はランチ情報検索条件画面にリダイレクト）
   end
 end
