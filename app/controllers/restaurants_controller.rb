@@ -40,7 +40,15 @@ class RestaurantsController < ApplicationController
   # POST /restaurants
   # POST /restaurants.json
   def create
-    @restaurant = Restaurant.new(params[:restaurant])
+
+#Žb’èô«
+    paramtmp_l = params[:restaurant][:lunch]
+    params[:restaurant].delete(:lunch)
+    paramtmp_r = params[:restaurant]
+   @restaurant = Restaurant.new(paramtmp_r)
+   @restaurant.lunches.new(paramtmp_l)
+#ªŽb’èô
+#–{•¨H   @restaurant = Restaurant.new(params[:restaurant])
 
     respond_to do |format|
       if @restaurant.save
