@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+<TABLE BORDER=0 CELLPADDING=10><TR><TD VALIGN="TOP" BGCOLOR="LIME">
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -23,6 +25,9 @@
     <%= f.label :telephoneNumber %><br />
     <%= f.text_field :telephoneNumber %>
   </div>
+
+</TD><TD VALIGN="TOP" BGCOLOR="AQUA">
+
   <div class="field">
     <%= f.label :reservation %><br />
     <%= f.check_box :reservation %>
@@ -39,34 +44,40 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+
+</TD><TD VALIGN="TOP" BGCOLOR="ORANGE">
+
   <div class="field">
-    <%= f.label :sun %><br />
+    <%= f.label :sun %>
     <%= f.check_box :sundayUp %>
   </div>
   <div class="field">
-    <%= f.label :mon %><br />
+    <%= f.label :mon %>
     <%= f.check_box :mondayUp %>
   </div>
   <div class="field">
-    <%= f.label :tue %><br />
+    <%= f.label :tue %>
     <%= f.check_box :tuesdayUp %>
   </div>
   <div class="field">
-    <%= f.label :wed %><br />
+    <%= f.label :wed %>
     <%= f.check_box :wednesdayUp %>
   </div>
   <div class="field">
-    <%= f.label :thu %><br />
+    <%= f.label :thu %>
     <%= f.check_box :thursdayUp %>
   </div>
   <div class="field">
-    <%= f.label :fri %><br />
+    <%= f.label :fri %>
     <%= f.check_box :fridayUp %>
   </div>
   <div class="field">
-    <%= f.label :sat %><br />
+    <%= f.label :sat %>
     <%= f.check_box :saturdayUp %>
   </div>
+
+</TD><TD VALIGN="TOP" BGCOLOR="GREY">
+
   <div class="field">
     <%= f.label :From %><br />
     <%= f.time_select :startTime %>
@@ -76,8 +87,13 @@
     <%= f.time_select :endTime %>
   </div>
 
+</TD></TR></TABLE>
 
-<!--  --->
+<!-- lunch --->
+
+<TABLE BORDER=0 BGCOLOR="PINK">
+<TR><TD>-- Lunch Data --</TD></TR>
+<TR><TD>
 
 <%= f.fields_for :lunch do |f2| %>
   <div class="field">
@@ -92,7 +108,10 @@
 
 <!--  --->
 
+</TD></TR></TABLE>
 
+
+<BR />
 
   <div class="actions">
     <%= f.submit %>
