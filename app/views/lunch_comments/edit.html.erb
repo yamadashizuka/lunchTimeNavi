@@ -2,5 +2,12 @@
 
 <%= render 'form' %>
 
+<%
+=begin
+%>
 <%= link_to 'Show', @lunch_comment %> |
 <%= link_to 'Back', lunch_comments_path %>
+<%
+=end
+%>
+<%= link_to 'Back to Summary List', {:controller => "summary_lists"} %><br />

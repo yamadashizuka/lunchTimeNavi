@@ -24,7 +24,11 @@ class LunchCommentsController < ApplicationController
   # GET /lunch_comments/new
   # GET /lunch_comments/new.json
   def new
+    @lunch = Lunch.find(params[:id])
+    @restaurant = Restaurant.find(@lunch.restaurant_id)
+
     @lunch_comment = LunchComment.new
+    @lunch_comment.lunch_id = @lunch.id
     @ratings = Rating.all
 
     respond_to do |format|
