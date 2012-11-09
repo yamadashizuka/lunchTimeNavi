@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<TABLE BORDER=0 CELLPADDING=10><TR><TD VALIGN="TOP" BGCOLOR="LIME">
+<TABLE BORDER=0 CELLPADDING=10 BGCOLOR="LIME"><TR><TD VALIGN="TOP">
 
   <div class="field">
     <%= f.label :name %><br />
@@ -26,10 +26,10 @@
     <%= f.text_field :telephoneNumber %>
   </div>
 
-</TD><TD VALIGN="TOP" BGCOLOR="AQUA">
+</TD><TD VALIGN="TOP"><br />
 
   <div class="field">
-    <%= f.label :reservation %><br />
+    <%= f.label :reservation %>
     <%= f.check_box :reservation %>
   </div>
   <div class="field">
@@ -45,7 +45,7 @@
     <%= f.text_field :email %>
   </div>
 
-</TD><TD VALIGN="TOP" BGCOLOR="ORANGE">
+</TD><TD VALIGN="TOP"><br />
 
 Open<BR />
   <div class="field">
@@ -77,7 +77,7 @@ Open<BR />
     <%= f.check_box :saturdayUp %>
   </div>
 
-</TD><TD VALIGN="TOP" BGCOLOR="GREY">
+</TD><TD VALIGN="TOP"><br />
 Lunch Time<BR />
   <div class="field">
     <%= f.label :From %><br />
