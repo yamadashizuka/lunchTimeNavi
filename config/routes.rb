@@ -1,4 +1,5 @@
 LunchTimeNavi::Application.routes.draw do
+
   resources :summary_lists, :only => [:index]
 
   resources :lunch_comments
@@ -69,13 +70,17 @@ LunchTimeNavi::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  #match ':controller(/:action(/:id))(.:format)'
+  # match ':controller(/:action(/:id))(.:format)'
 
+  # for signup and user register
   match 'signup/signup' => 'signup#signup'
   match 'signup/signedup' => 'signup#signedup'
   match 'signup/registerNewUser' => 'signup#registerNewUser'
   match 'signup/newUserRegistered' => 'signup#newUserRegistered'
 
+  # for summary list
   match 'lunch_comments/new2/:id' => 'lunch_comments#new2'
   match 'lunches/new2/:id' => 'lunches#new2'
+  match 'restaurants/new2/:id' => 'restaurants#new2'
+
 end
