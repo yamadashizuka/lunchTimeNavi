@@ -26,6 +26,7 @@ class RestaurantsController < ApplicationController
   def new
     @restaurant = Restaurant.new
     @genres = Genre.all
+    @ratings = Rating.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,13 +44,26 @@ class RestaurantsController < ApplicationController
   def create
 
 #暫定策↓
+
+    # 1.paramsからlunch_commentを取り出してlunch_commentを消す
+    paramtmp_c = params[:restaurant][:lunch][:lunch_comment]
+    params[:restaurant][:lunch].delete(:lunch_comment)
+
+    # 2.paramsからlunchを取り出してlunchを消す
     paramtmp_l = params[:restaurant][:lunch]
     params[:restaurant].delete(:lunch)
+
+    # 3.paramsからrestaurantを取り出す
     paramtmp_r = params[:restaurant]
-   @restaurant = Restaurant.new(paramtmp_r)
-   @restaurant.lunches.new(paramtmp_l)
+
+    #restaurant→lunch→lunch_commentの順に作って中身を詰める。
+    @restaurant = Restaurant.new(paramtmp_r)
+    @restaurant.lunches.new(paramtmp_l)
+    @restaurant.lunches.each do |thelunch|	#lunch毎にlunch_commentsをつめる
+      thelunch.lunch_comments.new(paramtmp_c)
+    end
+
 #↑暫定策
-#本物？   @restaurant = Restaurant.new(params[:restaurant])
 
     respond_to do |format|
       if @restaurant.save

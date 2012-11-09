@@ -92,10 +92,12 @@ Lunch Time<BR />
 
 <!-- lunch --->
 
-<TABLE BORDER=0 BGCOLOR="PINK">
-<TR><TD>-- Lunch Data --</TD></TR>
-<TR><TD>
+<TABLE BORDER=0 CELLPADDING=5 CELLSPACING=1>
+<TR><TD BGCOLOR="PINK" VALIGN="TOP">
 
+-- Lunch Data --<BR />
+
+<!-- lunch --->
 <%= f.fields_for :lunch do |f2| %>
   <div class="field">
     <%= f2.label :name %><br />
@@ -112,10 +114,31 @@ Lunch Time<BR />
     <%= f2.collection_select( :genre_id, @genres, :id, :name ) %>
   </div>
 
+</TD>
+<TD BGCOLOR="ORANGE" VALIGN="TOP">
+
+-- Comment --<BR />
+
+<!-- lunch_comment --->
+<%= f2.fields_for :lunch_comment do |f3| %>
+  <div class="field">
+    <%= f3.label :text %><br />
+    <%= f3.text_area :text, :size=>"45x4" %>
+  </div>
+  <div class="field">
+    <%= f3.label :name %><br />
+    <%= f3.text_field :name %>
+  </div>
+
+<!-- rating --->
+  <div class="field">
+    <%= f3.label :rating %><br />
+    <%= f3.collection_select( :rating_id, @ratings, :id, :name ) %>
+  </div>
+
 <% end %>
 
-
-
+<% end %>
 </TD></TR></TABLE>
 
 
