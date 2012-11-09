@@ -47,6 +47,7 @@
 
 </TD><TD VALIGN="TOP" BGCOLOR="ORANGE">
 
+Open<BR />
   <div class="field">
     <%= f.label :sun %>
     <%= f.check_box :sundayUp %>
@@ -77,7 +78,7 @@
   </div>
 
 </TD><TD VALIGN="TOP" BGCOLOR="GREY">
-
+Lunch Time<BR />
   <div class="field">
     <%= f.label :From %><br />
     <%= f.time_select :startTime %>
@@ -108,7 +109,7 @@
 <!-- genre --->
   <div class="field">
     <%= f2.label :genre %><br />
-    <%= f2.number_field :genre_id %>
+    <%= f2.collection_select( :genre_id, @genres, :id, :name ) %>
   </div>
 
 <% end %>
