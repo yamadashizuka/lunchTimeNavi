@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+<TABLE BORDER=0 CELLPADDING=10 BGCOLOR="LIME"><TR><TD VALIGN="TOP">
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -23,8 +25,11 @@
     <%= f.label :telephoneNumber %><br />
     <%= f.text_field :telephoneNumber %>
   </div>
+
+</TD><TD VALIGN="TOP"><br />
+
   <div class="field">
-    <%= f.label :reservation %><br />
+    <%= f.label :reservation %>
     <%= f.check_box :reservation %>
   </div>
   <div class="field">
@@ -39,34 +44,41 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+
+</TD><TD VALIGN="TOP"><br />
+
+Open<BR />
   <div class="field">
-    <%= f.label :sun %><br />
+    <%= f.label :sun %>
     <%= f.check_box :sundayUp %>
   </div>
   <div class="field">
-    <%= f.label :mon %><br />
+    <%= f.label :mon %>
     <%= f.check_box :mondayUp %>
   </div>
   <div class="field">
-    <%= f.label :tue %><br />
+    <%= f.label :tue %>
     <%= f.check_box :tuesdayUp %>
   </div>
   <div class="field">
-    <%= f.label :wed %><br />
+    <%= f.label :wed %>
     <%= f.check_box :wednesdayUp %>
   </div>
   <div class="field">
-    <%= f.label :thu %><br />
+    <%= f.label :thu %>
     <%= f.check_box :thursdayUp %>
   </div>
   <div class="field">
-    <%= f.label :fri %><br />
+    <%= f.label :fri %>
     <%= f.check_box :fridayUp %>
   </div>
   <div class="field">
-    <%= f.label :sat %><br />
+    <%= f.label :sat %>
     <%= f.check_box :saturdayUp %>
   </div>
+
+</TD><TD VALIGN="TOP"><br />
+Lunch Time<BR />
   <div class="field">
     <%= f.label :From %><br />
     <%= f.time_select :startTime %>
@@ -76,9 +88,16 @@
     <%= f.time_select :endTime %>
   </div>
 
+</TD></TR></TABLE>
 
-<!--  --->
+<!-- lunch --->
 
+<TABLE BORDER=0 CELLPADDING=5 CELLSPACING=1>
+<TR><TD BGCOLOR="PINK" VALIGN="TOP">
+
+-- Lunch Data --<BR />
+
+<!-- lunch --->
 <%= f.fields_for :lunch do |f2| %>
   <div class="field">
     <%= f2.label :name %><br />
@@ -88,11 +107,42 @@
     <%= f2.label :price %><br />
     <%= f2.number_field :price %>
   </div>
+
+<!-- genre --->
+  <div class="field">
+    <%= f2.label :genre %><br />
+    <%= f2.collection_select( :genre_id, @genres, :id, :name ) %>
+  </div>
+
+</TD>
+<TD BGCOLOR="ORANGE" VALIGN="TOP">
+
+-- Comment --<BR />
+
+<!-- lunch_comment --->
+<%= f2.fields_for :lunch_comment do |f3| %>
+  <div class="field">
+    <%= f3.label :text %><br />
+    <%= f3.text_area :text, :size=>"45x4" %>
+  </div>
+  <div class="field">
+    <%= f3.label :name %><br />
+    <%= f3.text_field :name %>
+  </div>
+
+<!-- rating --->
+  <div class="field">
+    <%= f3.label :rating %><br />
+    <%= f3.collection_select( :rating_id, @ratings, :id, :name ) %>
+  </div>
+
 <% end %>
 
-<!--  --->
+<% end %>
+</TD></TR></TABLE>
 
 
+<BR />
 
   <div class="actions">
     <%= f.submit %>
