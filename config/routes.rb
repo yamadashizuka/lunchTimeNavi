@@ -1,5 +1,7 @@
 LunchTimeNavi::Application.routes.draw do
 
+  resources :summary_infos, :only => [:index]
+
   resources :summary_lists, :only => [:index]
 
   resources :lunch_comments

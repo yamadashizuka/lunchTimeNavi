@@ -28,20 +28,12 @@
       </td>
       <td class="list_actions">
         <% if lunch.nil? %>
-          <%= link_to 'New', new_lunch_path %><br />
         <% else %>
           <%= link_to 'Show', lunch %><br />
           <%= link_to 'Edit', edit_lunch_path(lunch) %><br />
-<%
-=begin
-%>
-          <%= link_to 'New', new_lunch_path %><br />
-<%
-=end
-%>
-          <%= link_to 'New', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
-
         <% end %>
+        <%= link_to 'New', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
+
       </td>
       <td class="info_lunch_comment">
         <dl>
@@ -62,7 +54,7 @@
             <%= link_to 'Show', lunch_comment %><br />
             <%= link_to 'Edit', edit_lunch_comment_path(lunch_comment) %><br />
           <% end %>
-            <%= link_to 'New', {:controller => "lunch_comments", :action => "new", :id => lunch.id} %><br />
+            <%= link_to 'New', {:controller => "lunch_comments", :action => "new2", :id => lunch.id} %><br />
         <% end %>
       </td>
     </tr>
