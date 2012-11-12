@@ -1,17 +1,3 @@
-<TABLE BORDER=0 CELLPADDING=5>
-<TR BGCOLOR="LIME">
-<TD>Restaurant Name</TD>
-<TD><%= @restaurant.name %></TD>
-</TR>
-<TR BGCOLOR="PINK">
-<TD>Lunch Name</TD>
-<TD><%= @lunch.name %></TD>
-</TR>
-</TABLE>
-<br/>
-<p>
-Please Add new comment!<br/>
-</p>
 <%= form_for(@lunch_comment) do |f| %>
   <% if @lunch_comment.errors.any? %>
     <div id="error_explanation">
@@ -36,10 +22,10 @@ Please Add new comment!<br/>
   </div>
   <div class="field">
     <%= f.label :rating %><br />
-    <%= f.collection_select( :rating_id, @ratings, :id, :name ) %>
+    <%= f.collection_select( :rating_id, @ratings, :id, :name ) %><br />
   </div>
   <div class="actions">
-    <%= f.submit  %>
+    <%= f.submit "登録" %>
   </div>
 <% end %>
 </TABLE>

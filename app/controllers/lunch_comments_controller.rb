@@ -1,4 +1,4 @@
-
+# encoding: UTF-8
 class LunchCommentsController < ApplicationController
   # GET /lunch_comments
   # GET /lunch_comments.json
@@ -30,11 +30,12 @@ class LunchCommentsController < ApplicationController
 
     @lunch_comment = LunchComment.new
     @lunch_comment.lunch_id = @lunch.id
-    #ƒZƒbƒVƒ‡ƒ“î•ñ‚©‚çŒ»Ý‚ÌƒƒOƒCƒ“ƒ†[ƒU[‚ðƒZƒbƒg‚·‚éB
-    @lunch_comment.name = session[:currentUser].name
-    
+    #ã‚»ãƒƒã‚·ãƒ§ãƒ³æƒ…å ±ã‹ã‚‰ç¾åœ¨ã®ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ã€‚
+    #ï¼ˆæƒ…å ±ãŒã‚ã‚‹å ´åˆã®ã¿ã‚»ãƒƒãƒˆï¼‰
+    unless session[:currentUser].nil?
+      @lunch_comment.name = session[:currentUser].name
+    end
     @ratings = Rating.all
-    
     
     respond_to do |format|
       format.html # new.html.erb

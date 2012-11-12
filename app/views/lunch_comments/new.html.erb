@@ -1,5 +1,20 @@
-<h1>Add lunch_comment</h1>
+<h1>ランチコメント登録</h1>
+
+<TABLE BORDER=0 CELLPADDING=5>
+<TR BGCOLOR="LIME">
+<TD>レストラン名</TD>
+<TD><%= @restaurant.name %></TD>
+</TR>
+<TR BGCOLOR="PINK">
+<TD>ランチ名</TD>
+<TD><%= @lunch.name %></TD>
+</TR>
+</TABLE>
+<br/>
+<p>
+新規コメントを登録してください！
+</p>
 
 <%= render 'formadd' %>
 
-<%= link_to 'Back', {:controller => "summary_lists"} %><br />
+<%= link_to 'ランチ一覧に戻る', {:controller => "summary_lists"} %><br />
