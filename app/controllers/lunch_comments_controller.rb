@@ -1,3 +1,4 @@
+
 class LunchCommentsController < ApplicationController
   # GET /lunch_comments
   # GET /lunch_comments.json
@@ -29,8 +30,12 @@ class LunchCommentsController < ApplicationController
 
     @lunch_comment = LunchComment.new
     @lunch_comment.lunch_id = @lunch.id
+    #セッション情報から現在のログインユーザーをセットする。
+    @lunch_comment.name = session[:currentUser].name
+    
     @ratings = Rating.all
-
+    
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @lunch_comment }
