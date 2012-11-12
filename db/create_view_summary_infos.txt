@@ -1,0 +1,37 @@
+create view summary_infos
+  as select
+    restaurants.name as restaurant_name,
+    restaurants.address,
+    restaurants.startTime,
+    restaurants.endTime,
+    c0.*
+  from restaurants
+   left outer join 
+    (select
+      c1.*,
+      genres.name   as genre_name,
+      ratings.value as rating_value,
+      ratings.name  as rating_name
+     from
+      (select
+        lunches.restaurant_id,
+        lunches.id          as lunch_id,
+        lunches.name        as lunch_name,
+        lunches.price,
+        lunches.genre_id,
+        lunch_comments.id   as lunch_comment_id,
+        lunch_comments.text as lunch_comment,
+        lunch_comments.name as user_name,
+        lunch_comments.rating_id,
+        lunch_comments.created_at
+       from lunches
+        left outer join lunch_comments
+        on lunches.id = lunch_comments.lunch_id
+      ) c1,
+      genres,
+      ratings
+     where
+      c1.genre_id  = genres.id and
+      c1.rating_id = ratings.id
+     ) c0
+   on restaurants.id = c0.restaurant_id;
