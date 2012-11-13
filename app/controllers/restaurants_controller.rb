@@ -28,9 +28,24 @@ class RestaurantsController < ApplicationController
     @genres = Genre.all
     @ratings = Rating.all
 
+    #セッション情報から現在のログインユーザーをセットする。
+    #（情報がある場合のみセット）
+    @restaurant.lunches.new()
+    unless session[:currentUser].nil?
+      @restaurant.lunches.each do |thelunch|	#lunchのlunch_commentsに名前を詰める
+        thelunch.lunch_comments.new()
+        thelunch.lunch_comments.each do |thecomment|	#lunchのlunch_commentsに名前を詰める
+          thecomment.name = session[:currentUser].name
+puts "$$$$$$$$$$$$$$$$$$$$$$$"
+puts thecomment.name
+        end
+      end
+    end
+
+
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @restaurant }
+      format.json { render json: @restaurant}
     end
   end
 
