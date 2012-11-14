@@ -47,7 +47,7 @@
 
 </TD><TD VALIGN="TOP"><br />
 
-Open<BR />
+開店日<BR />
   <div class="field">
     <%= f.label :sun %>
     <%= f.check_box :sundayUp %>
@@ -78,7 +78,7 @@ Open<BR />
   </div>
 
 </TD><TD VALIGN="TOP"><br />
-Lunch Time<BR />
+ランチタイム<BR />
   <div class="field">
     <%= f.label :From %><br />
     <%= f.time_select :startTime, :default => Time.gm(2012, 11, 11, 11, 00, 00) %>
@@ -95,7 +95,7 @@ Lunch Time<BR />
 <TABLE BORDER=0 CELLPADDING=5 CELLSPACING=1>
 <TR><TD BGCOLOR="PINK" VALIGN="TOP">
 
--- Lunch Data --<BR />
+-- ランチ情報 --<BR />
 
 <!-- lunch --->
 <%= f.fields_for :lunch do |f2| %>
@@ -117,7 +117,7 @@ Lunch Time<BR />
 </TD>
 <TD BGCOLOR="ORANGE" VALIGN="TOP">
 
--- Comment --<BR />
+-- コメント --<BR />
 
 <!-- lunch_comment --->
 <%= f2.fields_for :lunch_comment do |f3| %>
