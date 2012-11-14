@@ -1,21 +1,29 @@
 <h1>Listing summaryLists</h1>
 
 <table>
+  <% old_restrantid = -1 %>
+  <% old_lunchid = -1 %>
 
   <% @ary.each do |restaurant, lunch, lunch_comment| %>
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td class="info_restaurant">
+      <% if restaurant.id != old_restrantid %>
         <dl>
           <dt><%= truncate(restaurant.name, {:length => 80}) %></dt>
           <dd><%= truncate(restaurant.address, {:length => 80}) %></dd>
           <dd><%= restaurant.startTime.strftime('%H:%M') %> ～ <%= restaurant.endTime.strftime('%H:%M') %></dd>
         </dl>
+      <% end %>
       </td>
       <td class="list_actions">
+      <% if restaurant.id != old_restrantid %>
         <%= link_to 'Show', restaurant %><br />
         <%= link_to 'Edit', edit_restaurant_path(restaurant) %><br />
+      <% end %>
       </td>
+
       <td class="info_lunch">
+      <% if lunch.id != old_lunchid %>
         <dl>
           <% if lunch.nil? %>
             <dt>nothing</dt>
@@ -25,15 +33,17 @@
             <dd><%= number_to_currency(lunch.price, :unit => '円', :precision =>0, :format => '%n%u') %></dd>
           <% end %>
         <dl>
+      <% end %>
       </td>
       <td class="list_actions">
+      <% if lunch.id != old_lunchid %>
         <% if lunch.nil? %>
         <% else %>
           <%= link_to 'Show', lunch %><br />
           <%= link_to 'Edit', edit_lunch_path(lunch) %><br />
         <% end %>
         <%= link_to 'New', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
-
+      <% end %>
       </td>
       <td class="info_lunch_comment">
         <dl>
@@ -58,6 +68,10 @@
         <% end %>
       </td>
     </tr>
+
+   <% old_restrantid = restaurant.id %>
+   <% old_lunchid = lunch.id %>
+
   <% end %>
 </table>
 <br>

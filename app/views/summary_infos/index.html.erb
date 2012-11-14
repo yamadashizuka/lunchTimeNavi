@@ -2,19 +2,25 @@
 <p>Find me in app/views/summary_infos/index.html.erb</p>
 
 <table>
+  <% old_restrantid = -1 %>
+  <% old_lunchid = -1 %>
 
   <% @summary_infos.each do |info| %>
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td class="info_restaurant">
+      <% if restaurant.id != old_restrantid %>
         <dl>
           <dt><%= truncate(info.restaurant_name, {:length => 80}) %></dt>
           <dd><%= truncate(info.address, {:length => 80}) %></dd>
           <dd><%= info.startTime.strftime('%H:%M') %> ～ <%= info.endTime.strftime('%H:%M') %></dd>
         </dl>
+      <% end %>
       </td>
       <td class="list_actions">
+      <% if restaurant.id != old_restrantid %>
         <%= link_to 'Show', {:controller => "restaurants", :action => "show", :id => info.restaurant_id} %><br />
         <%= link_to 'Edit', {:controller => "restaurants", :action => "edit", :id => info.restaurant_id} %><br />
+      <% end %>
       </td>
       <td class="info_lunch">
         <dl>
@@ -28,14 +34,17 @@
         <dl>
       </td>
       <td class="list_actions">
+      <% if lunch.id != old_lunchid %>
         <% if info.lunch_id == 0 %>
         <% else %>
           <%= link_to 'Show', {:controller => "lunches", :action => "show", :id => info.lunch_id} %><br />
           <%= link_to 'Edit', {:controller => "lunches", :action => "edit", :id => info.lunch_id} %><br />
         <% end %>
         <%= link_to 'New',  {:controller => "lunches", :action => "new2", :id => info.restaurant_id} %><br />
+      <% end %>
       </td>
       <td class="info_lunch_comment">
+      <% if lunch.id != old_lunchid %>
         <dl>
         <% if info.lunch_comment_id.nil? %>
           <dt>nothing</dt>
@@ -45,6 +54,7 @@
           <dd><%= truncate(info.lunch_comment, {:length => 60}) %></dd>
         <% end %>
         <dl>
+      <% end %>
       </td>
       <td class="list_actions">
         <% if info.lunch_id.nil? %>
@@ -54,7 +64,7 @@
             <%= link_to 'Show', {:controller => "lunch_comments", :action => "show", :id => info.lunch_comment_id} %><br />
             <%= link_to 'Edit', {:controller => "lunch_comments", :action => "edit", :id => info.lunch_comment_id} %><br />
           <% end %>
-          <%= link_to 'New',  {:controller => "lunch_comments", :action => "new2", :id => info.lunch_id} %><br />
+          <%= link_to 'New',  {:controller => "lunch_comments", :action => "new", :id => info.lunch_id} %><br />
         <% end %>
       </td>
     </tr>
@@ -68,7 +78,7 @@
 <%
 =begin
 %>
-<p><%= will_paginate @summary_infos, {:previous_label => '«前頁', :next_label => '次頁»'} %></p>
+<p><%= will_paginate @summary_infos, {:previous_label => '≪前頁', :next_label => '次頁≫'} %></p>
 <%
 =end
 %>
