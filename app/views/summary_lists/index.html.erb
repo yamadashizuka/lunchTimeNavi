@@ -23,27 +23,26 @@
       </td>
 
       <td class="info_lunch">
-      <% if lunch.id != old_lunchid %>
         <dl>
           <% if lunch.nil? %>
             <dt>nothing</dt>
           <% else %>
-            <dt><%= truncate(lunch.name, {:length => 60}) %></dt>
-            <dd><%= lunch.genre.name %></dd>
-            <dd><%= number_to_currency(lunch.price, :unit => '円', :precision =>0, :format => '%n%u') %></dd>
+            <% if lunch.id != old_lunchid %>
+              <dt><%= truncate(lunch.name, {:length => 60}) %></dt>
+              <dd><%= lunch.genre.name %></dd>
+              <dd><%= number_to_currency(lunch.price, :unit => '円', :precision =>0, :format => '%n%u') %></dd>
+            <% end %>
           <% end %>
         <dl>
-      <% end %>
       </td>
       <td class="list_actions">
-      <% if lunch.id != old_lunchid %>
-        <% if lunch.nil? %>
-        <% else %>
-          <%= link_to 'Show', lunch %><br />
-          <%= link_to 'Edit', edit_lunch_path(lunch) %><br />
+        <% unless lunch.nil? %>
+          <% if lunch.id != old_lunchid %>
+            <%= link_to 'Show', lunch %><br />
+            <%= link_to 'Edit', edit_lunch_path(lunch) %><br />
+            <%= link_to 'New', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
+          <% end %>
         <% end %>
-        <%= link_to 'New', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
-      <% end %>
       </td>
       <td class="info_lunch_comment">
         <dl>
@@ -57,10 +56,8 @@
         <dl>
       </td>
       <td class="list_actions">
-        <% if lunch.nil? %>
-        <% else %>
-          <% if lunch_comment.nil? %>
-          <% else %>
+        <% unless lunch.nil? %>
+          <% unless lunch_comment.nil? %>
             <%= link_to 'Show', lunch_comment %><br />
             <%= link_to 'Edit', edit_lunch_comment_path(lunch_comment) %><br />
           <% end %>
