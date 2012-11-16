@@ -1,40 +1,47 @@
 <p id="notice"><%= notice %></p>
 
+<TABLE BORDER=0 CELLPADDING=10 BGCOLOR="LIME">
+<TR>
+<TD VALIGN="TOP">
 <p>
-  <b>Name:</b>
+  <b>Name:</b><br/>
   <%= @restaurant.name %>
 </p>
 
 <p>
-  <b>Address:</b>
+  <b>Address:</b><br />
   <%= @restaurant.address %>
 </p>
 
 <p>
-  <b>TelephoneNumber:</b>
+  <b>TelephoneNumber:</b><br />
   <%= @restaurant.telephoneNumber %>
 </p>
+</TD>
 
+<TD VALIGN="TOP">
 <p>
-  <b>Reservation:</b>
+  <b>Reservation:</b><br />
   <%= @restaurant.reservation %>
 </p>
 
 <p>
-  <b>Memo:</b>
+  <b>Memo:</b><br />
   <%= @restaurant.memo %>
 </p>
 
 <p>
-  <b>Url:</b>
+  <b>Url:</b><br />
   <%= @restaurant.url %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b>Email:</b><br />
   <%= @restaurant.email %>
 </p>
+</TD>
 
+<TD VALIGN="TOP">
 <p>
   <b>Sun:</b>
   <%= @restaurant.sundayUp %>
@@ -71,15 +78,15 @@
 </p>
 
 <p>
-  <b>From:</b>
+  <b>From:</b><br />
   <%= @restaurant.startTime %>
 </p>
 
 <p>
-  <b>To:</b>
+  <b>To:</b><br />
   <%= @restaurant.endTime %>
 </p>
+</TABLE>
 
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<br  />
+<%= link_to 'ランチ一覧に戻る', {:controller => "summary_lists"} %><br />

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
@@ -28,6 +29,22 @@ class RestaurantsController < ApplicationController
     @genres = Genre.all
     @ratings = Rating.all
 
+    #ã‚»ãƒƒã‚·ãƒ§ãƒ³æƒ…å ±ã‹ã‚‰ç¾åœ¨ã®ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ã€‚
+    #ï¼ˆæƒ…å ±ãŒã‚ã‚‹å ´åˆã®ã¿ã‚»ãƒƒãƒˆï¼‰
+    unless session[:currentUser].nil?
+       @restaurant.lunches.new
+       @restaurant.lunches.each do |thelunch|	#lunchæ¯Žã«lunch_commentsã‚’ã¤ã‚ã‚‹
+          thelunch.name  = session[:currentUser].name
+          thelunch.lunch_comments.new
+          thelunch.lunch_comments.each do |comment| 
+            comment.name = session[:currentUser].name
+          end
+       end
+
+    end
+
+
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @restaurant }
@@ -43,27 +60,27 @@ class RestaurantsController < ApplicationController
   # POST /restaurants.json
   def create
 
-#Žb’èô«
+#æš«å®šç­–â†“
 
-    # 1.params‚©‚çlunch_comment‚ðŽæ‚èo‚µ‚Älunch_comment‚ðÁ‚·
+    # 1.paramsã‹ã‚‰lunch_commentã‚’å–ã‚Šå‡ºã—ã¦lunch_commentã‚’æ¶ˆã™
     paramtmp_c = params[:restaurant][:lunch][:lunch_comment]
     params[:restaurant][:lunch].delete(:lunch_comment)
 
-    # 2.params‚©‚çlunch‚ðŽæ‚èo‚µ‚Älunch‚ðÁ‚·
+    # 2.paramsã‹ã‚‰lunchã‚’å–ã‚Šå‡ºã—ã¦lunchã‚’æ¶ˆã™
     paramtmp_l = params[:restaurant][:lunch]
     params[:restaurant].delete(:lunch)
 
-    # 3.params‚©‚çrestaurant‚ðŽæ‚èo‚·
+    # 3.paramsã‹ã‚‰restaurantã‚’å–ã‚Šå‡ºã™
     paramtmp_r = params[:restaurant]
 
-    #restaurant¨lunch¨lunch_comment‚Ì‡‚Éì‚Á‚Ä’†g‚ð‹l‚ß‚éB
+    #restaurantâ†’lunchâ†’lunch_commentã®é †ã«ä½œã£ã¦ä¸­èº«ã‚’è©°ã‚ã‚‹ã€‚
     @restaurant = Restaurant.new(paramtmp_r)
     @restaurant.lunches.new(paramtmp_l)
-    @restaurant.lunches.each do |thelunch|	#lunch–ˆ‚Élunch_comments‚ð‚Â‚ß‚é
+    @restaurant.lunches.each do |thelunch|	#lunchæ¯Žã«lunch_commentsã‚’ã¤ã‚ã‚‹
       thelunch.lunch_comments.new(paramtmp_c)
     end
 
-#ªŽb’èô
+#â†‘æš«å®šç­–
 
     respond_to do |format|
       if @restaurant.save

@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+
 <TABLE BORDER=0 CELLPADDING=10 BGCOLOR="LIME"><TR><TD VALIGN="TOP">
 
   <div class="field">
@@ -89,56 +90,6 @@
 
 </TD></TR></TABLE>
 
-<!-- lunch --->
-
-<TABLE BORDER=0 CELLPADDING=5 CELLSPACING=1>
-<TR><TD BGCOLOR="PINK" VALIGN="TOP">
-
--- ランチ情報 --<BR />
-
-<!-- lunch --->
-<%= f.fields_for :lunch do |f2| %>
-  <div class="field">
-    <%= f2.label :name %><br />
-    <%= f2.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f2.label :price %><br />
-    <%= f2.number_field :price %>
-  </div>
-
-<!-- genre --->
-  <div class="field">
-    <%= f2.label :genre %><br />
-    <%= f2.collection_select( :genre_id, @genres, :id, :name ) %>
-  </div>
-
-</TD>
-<TD BGCOLOR="ORANGE" VALIGN="TOP">
-
--- コメント --<BR />
-
-<!-- lunch_comment --->
-<%= f2.fields_for :lunch_comment do |f3| %>
-  <div class="field">
-    <%= f3.label :text %><br />
-    <%= f3.text_area :text, :size=>"45x4" %>
-  </div>
-  <div class="field">
-    <%= f3.label :name %><br />
-    <%= f3.text_field :name %>
-  </div>
-
-<!-- rating --->
-  <div class="field">
-    <%= f3.label :rating %><br />
-    <%= f3.collection_select( :rating_id, @ratings, :id, :name ) %>
-  </div>
-
-<% end %>
-
-<% end %>
-</TD></TR></TABLE>
 
 
 <BR />
