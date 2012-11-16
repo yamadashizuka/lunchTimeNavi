@@ -1,13 +1,13 @@
 <h1>Listing summaryLists</h1>
 
 <table>
-  <% old_restrantid = -1 %>
+  <% old_restaurantid = -1 %>
   <% old_lunchid = -1 %>
 
   <% @ary.each do |restaurant, lunch, lunch_comment| %>
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td class="info_restaurant">
-      <% if restaurant.id != old_restrantid %>
+      <% if restaurant.id != old_restaurantid %>
         <dl>
           <dt><%= truncate(restaurant.name, {:length => 80}) %></dt>
           <dd><%= truncate(restaurant.address, {:length => 80}) %></dd>
@@ -16,7 +16,7 @@
       <% end %>
       </td>
       <td class="list_actions">
-      <% if restaurant.id != old_restrantid %>
+      <% if restaurant.id != old_restaurantid %>
         <%= link_to 'Show', restaurant %><br />
         <%= link_to 'Edit', edit_restaurant_path(restaurant) %><br />
       <% end %>
@@ -42,7 +42,10 @@
             <%= link_to 'Edit', edit_lunch_path(lunch) %><br />
             <%= link_to 'New', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
           <% end %>
-        <% end %>
+        <% else %>
+           <%= link_to 'New', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
+      <% end %>
+
       </td>
       <td class="info_lunch_comment">
         <dl>
@@ -65,9 +68,13 @@
         <% end %>
       </td>
     </tr>
-
-   <% old_restrantid = restaurant.id %>
-   <% old_lunchid = lunch.id %>
+   
+   <% unless restaurant.nil? %>
+     <% old_restaurantid = restaurant.id %>
+   <% end %>
+   <% unless lunch.nil? %>
+     <% old_lunchid = lunch.id %>
+   <% end %>
 
   <% end %>
 </table>
