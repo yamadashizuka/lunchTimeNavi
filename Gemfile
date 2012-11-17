@@ -5,8 +5,24 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+#----------------- for Heroku -------------------------#
+
+gem 'heroku'
+
 #gem 'sqlite3'
-gem 'pg'
+group :production, :staging do
+  gem "pg"
+end
+
+group :development, :test do
+  gem "sqlite3-ruby", :require => "sqlite3"
+end
+
+group :production do
+  gem 'thin'
+end
+
+#----------------- for Heroku -------------------------#
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,3 +54,4 @@ gem 'will_paginate', '~>3.0'
 
 # To use debugger
 # gem 'debugger'
+
