@@ -84,5 +84,6 @@ LunchTimeNavi::Application.routes.draw do
   match 'lunch_comments/new2/:id' => 'lunch_comments#new2'
   match 'lunches/new2/:id' => 'lunches#new2'
   match 'restaurants/new2/:id' => 'restaurants#new2'
+  match 'summary_lists/search' => 'summary_lists#search'
 
 end
