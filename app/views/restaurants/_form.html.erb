@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :telephoneNumber %><br />
-    <%= f.text_field :telephoneNumber %>
+    <%= f.telephone_field :telephoneNumber %>
   </div>
 
 </TD><TD VALIGN="TOP"><br />
@@ -37,11 +37,11 @@
   </div>
   <div class="field">
     <%= f.label :url %><br />
-    <%= f.text_field :url %>
+    <%= f.url_field :url %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
   </div>
 
 </TD><TD VALIGN="TOP"><br />
@@ -80,11 +80,11 @@
 ランチタイム<BR />
   <div class="field">
     <%= f.label :From %><br />
-    <%= f.time_select :startTime, :default => Time.gm(2012, 11, 11, 11, 00, 00) %>
+    <%= f.time_select :startTime, :default => Time.gm(2012, 11, 11, 11, 00, 00) , :minute_step => 10 %>
   </div>
   <div class="field">
     <%= f.label :To %><br />
-    <%= f.time_select :endTime, :default => Time.gm(2012, 11, 11, 15, 00, 00) %>
+    <%= f.time_select :endTime, :default => Time.gm(2012, 11, 11, 15, 00, 00) , :minute_step => 10 %>
   </div>
 
 </TD></TR></TABLE>
@@ -126,7 +126,7 @@
   </div>
   <div class="field">
     <%= f3.label :name %><br />
-    <%= f3.text_field :name %>
+    <%= f3.text_field :name,:value=> @name %>
   </div>
 
 <!-- rating --->
