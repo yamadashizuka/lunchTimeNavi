@@ -80,11 +80,11 @@
 ランチタイム<BR />
   <div class="field">
     <%= f.label :From %><br />
-    <%= f.time_select :startTime, :default => Time.gm(2012, 11, 11, 11, 00, 00) , :minute_step => 15 %>
+    <%= f.time_select :startTime, :default => Time.gm(2012, 11, 11, 11, 00, 00) , :minute_step => 10 %>
   </div>
   <div class="field">
     <%= f.label :To %><br />
-    <%= f.time_select :endTime, :default => Time.gm(2012, 11, 11, 15, 00, 00) , :minute_step => 15 %>
+    <%= f.time_select :endTime, :default => Time.gm(2012, 11, 11, 15, 00, 00) , :minute_step => 10 %>
   </div>
 
 </TD></TR></TABLE>
