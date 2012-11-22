@@ -77,6 +77,8 @@ LunchTimeNavi::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   # for signup and user register
+  match 'signedup' => 'signup#signedup'
+  match 'newUserRegistered' => 'signup#newUserRegistered'
   match 'signup/signup' => 'signup#signup'
   match 'signup/signedup' => 'signup#signedup'
   match 'signup/registerNewUser' => 'signup#registerNewUser'
