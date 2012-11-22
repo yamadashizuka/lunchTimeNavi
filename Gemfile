@@ -6,22 +6,22 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #----------------- for Heroku -------------------------#
-gem 'sqlite3', group: [:development, :test]
-gem 'pg', group: :production
+#gem 'sqlite3', group: [:development, :test]
+#gem 'pg', group: :production
 
 
 
 #gem 'heroku'
 
 gem 'sqlite3'
-#group :production, :staging do
-#  gem "pg"
-#end
-#
-#group :development, :test do
-#  gem "sqlite3-ruby", :require => "sqlite3"
-#end
-#
+group :production, :staging do
+  gem "pg"
+end
+
+group :development, :test do
+  gem "sqlite3-ruby", :require => "sqlite3"
+end
+
 #group :production do
 #  gem 'thin'
 #end
