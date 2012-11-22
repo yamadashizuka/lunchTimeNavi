@@ -1,6 +1,6 @@
 LunchTimeNavi::Application.routes.draw do
 
-  root to: 'signup#signup'      
+  root :to => 'signup#signup'      
 
   resources :summary_infos, :only => [:index]
 
