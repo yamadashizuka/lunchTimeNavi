@@ -11,9 +11,9 @@ gem 'rails', '3.2.8'
 
 
 
-#gem 'heroku'
+gem 'heroku'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 group :production, :staging do
   gem "pg"
 end
