@@ -1,5 +1,4 @@
 <h1>レストラン一覧</h1>
-
 <form action="summary_lists/search" method="post">
 	<table border="1">
 		<tr>
@@ -18,7 +17,7 @@
 			<td><%= label_tag :genre, 'ジャンル：' %></td>
 			<td>
 				<%= form_for(@genre) do |f| %>
-						<%= f.collection_select(:id, @genres, :id, :name) %>
+						<%= f.collection_select(:id, @genres, :id, :name, {:selected => 9}) %>
 				<% end %>
 			</td>
 		</tr>
@@ -29,28 +28,38 @@
 
 <br>
 <br>
+<%= link_to '新しいお店を登録', {:controller => "restaurants", :action => "new"} %>
+<br>
 <br>
 
 
 <table>
   <% old_restaurantid = -1 %>
   <% old_lunchid = -1 %>
+  <tr>
+    <td width="40"></td>
+    <td width="10"></td>
+    <td width="40"></td>
+    <td width="10"></td>
+    <td width="40"></td>
+    <td width="10"></td>
+  </tr>
 
   <% @ary.each do |restaurant, lunch, lunch_comment| %>
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       <td class="info_restaurant">
       <% if restaurant.id != old_restaurantid %>
         <dl>
-          <dt><%= truncate(restaurant.name, {:length => 80}) %></dt>
-          <dd><%= truncate(restaurant.address, {:length => 80}) %></dd>
+          <dt><%= truncate(restaurant.name, {:length => 40}) %></dt>
+          <dd><%= truncate(restaurant.address, {:length => 40}) %></dd>
           <dd><%= restaurant.startTime.strftime('%H:%M') %> ～ <%= restaurant.endTime.strftime('%H:%M') %></dd>
         </dl>
       <% end %>
-      </td>
-      <td class="list_actions">
+      </td >
+      <td class="list_actions" width="50">
       <% if restaurant.id != old_restaurantid %>
-        <%= link_to 'Show', restaurant %><br />
-        <%= link_to 'Edit', edit_restaurant_path(restaurant) %><br />
+        <%= link_to '詳細', restaurant %><br />
+        <%= link_to '編集', edit_restaurant_path(restaurant) %><br />
       <% end %>
       </td>
 
@@ -67,15 +76,15 @@
           <% end %>
         <dl>
       </td>
-      <td class="list_actions">
+      <td class="list_actions" width="50">
         <% unless lunch.nil? %>
           <% if lunch.id != old_lunchid %>
-            <%= link_to 'Show', lunch %><br />
-            <%= link_to 'Edit', edit_lunch_path(lunch) %><br />
-            <%= link_to 'New', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
+            <%= link_to '詳細', lunch %><br />
+            <%= link_to '編集', edit_lunch_path(lunch) %><br />
+            <%= link_to '追加', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
           <% end %>
         <% else %>
-           <%= link_to 'New', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
+           <%= link_to '追加', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
       <% end %>
 
       </td>
@@ -90,13 +99,13 @@
         <% end %>
         <dl>
       </td>
-      <td class="list_actions">
+      <td class="list_actions" width="50">
         <% unless lunch.nil? %>
           <% unless lunch_comment.nil? %>
-            <%= link_to 'Show', lunch_comment %><br />
-            <%= link_to 'Edit', edit_lunch_comment_path(lunch_comment) %><br />
+            <%= link_to '詳細', lunch_comment %><br />
+            <%= link_to '編集', edit_lunch_comment_path(lunch_comment) %><br />
           <% end %>
-            <%= link_to 'New', {:controller => "lunch_comments", :action => "new", :id => lunch.id} %><br />
+            <%= link_to '追加', {:controller => "lunch_comments", :action => "new", :id => lunch.id} %><br />
         <% end %>
       </td>
     </tr>
@@ -111,7 +120,7 @@
   <% end %>
 </table>
 <br>
-<%= link_to 'New', {:controller => "restaurants", :action => "new"} %>
+<%= link_to '新しいお店を登録', {:controller => "restaurants", :action => "new"} %>
 <br>
 
 

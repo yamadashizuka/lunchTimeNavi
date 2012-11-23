@@ -69,7 +69,11 @@ class SummaryListsController < ApplicationController
 		_restaurants = Restaurant.where(sql_WhereSentence).order(:name)
 		
 		_restaurants.each do |restaurant|
-			_lunches = restaurant.lunches.where('genre_id = ?', genre).order(:name)
+		    if (genre == '9') 
+		    	_lunches = restaurant.lunches.all()
+		    else
+				_lunches = restaurant.lunches.where('genre_id = ?', genre).order(:name)
+			end
 			if ( _lunches == nil ) || ( _lunches.size < 1 )
 				# ジャンル指定でものがない場合、リスト表示対象外
 			else

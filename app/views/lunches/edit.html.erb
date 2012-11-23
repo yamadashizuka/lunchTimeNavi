@@ -2,5 +2,11 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @lunch %> |
+<%
+=begin
+%><%= link_to 'Show', @lunch %> |
 <%= link_to 'Back', lunches_path %>
+<%
+=end
+%>
+<%= link_to 'ランチ一覧に戻る', {:controller => "summary_lists"} %><br />
