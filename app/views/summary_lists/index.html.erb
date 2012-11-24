@@ -1,36 +1,24 @@
-<h1>レストラン一覧</h1>
+<h1>レストラン検索</h1>
 
-<form action="summary_lists/search" method="post">
-	<table border="1">
-		<tr>
-			<td><%= label_tag :restaurantName, '店名：' %></td>
-			<td><%= text_field_tag :restaurantName, params[:restaurantName] %></td>
-		</tr>
-		<tr>
-			<td><%= label_tag :address, '住所：' %></td>
-			<td><%= text_field_tag :address, params[:address] %></td>
-		</tr>
-		<tr>
-			<td><%= label_tag :reservation, '予約：' %></td>
-			<td><%= check_box_tag :reservation, params[:reservation] %></td>
-		</tr>
-		<tr>
-			<td><%= label_tag :genre, 'ジャンル：' %></td>
-			<td>
-				<%= form_for(@genre) do |f| %>
-						<%= f.collection_select(:id, @genres, :id, :name) %>
-				<% end %>
-			</td>
-		</tr>
-	</table>
-
-<input name="signupButton" type="submit" value="検索">
-
+<%= form_tag "/summary_lists/search" do %>
+  <b>店名</b>
+  <%= text_field :search, :restaurantName %><br />
+  <b>住所</b>
+  <%= text_field :search, :address %><br />
+  <b>予約可否</b>
+  <%= check_box :search, :reservation, {:checked => false}, true, false %>
+  <b>ジャンル</b>
+  <%= collection_select(:search, :genre_id, @genres, :id, :name, :include_blank => true) %>
+  <b>評価</b>
+  <%= collection_select(:search, :rating_id, @ratings, :id, :name, :include_blank => true) %>
+  <br />
+  <br />
+  <%= submit_tag "検索" %>
+<% end %>
 
 <br>
 <br>
 <br>
-
 
 <table>
   <% old_restaurantid = -1 %>
@@ -111,7 +99,7 @@
   <% end %>
 </table>
 <br>
-<%= link_to 'New', {:controller => "restaurants", :action => "new"} %>
+<%= link_to 'レストラン情報登録', {:controller => "restaurants", :action => "new"} %>
 <br>
 
 
