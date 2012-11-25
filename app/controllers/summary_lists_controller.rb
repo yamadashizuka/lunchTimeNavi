@@ -109,7 +109,7 @@ class SummaryListsController < ApplicationController
 			else
 				lunches = restaurant.lunches.where("genre_id like ?", genre_id).order(:name)
 			end
-
+            puts "lunches is " + lunches.class.name
 			if ( lunches == nil ) || ( lunches.size < 1 )
 				# ジャンル指定なく、かつ、評価指定でない場合、リスト表示対象
 				if ( genre_id == "%" ) && ( rating_id == 0 )
