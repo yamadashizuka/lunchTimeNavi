@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>レストラン一覧</h1>
 <form action="summary_lists/search" method="post">
 	<table border="1">
@@ -24,14 +25,31 @@
 	</table>
 
 <input name="signupButton" type="submit" value="検索">
+=======
+<h1>レストラン検索</h1>
+>>>>>>> shioi/work
 
+<%= form_tag "/summary_lists/search" do %>
+  <b>店名</b>
+  <%= text_field :search, :restaurantName %><br />
+  <b>住所</b>
+  <%= text_field :search, :address %><br />
+  <b>予約可否</b>
+  <%= check_box :search, :reservation, {:checked => false}, true, false %>
+  <b>ジャンル</b>
+  <%= collection_select(:search, :genre_id, @genres, :id, :name, :include_blank => true) %>
+  <b>評価</b>
+  <%= collection_select(:search, :rating_id, @ratings, :id, :name, :include_blank => true) %>
+  <br />
+  <br />
+  <%= submit_tag "検索" %>
+<% end %>
 
 <br>
 <br>
 <%= link_to '新しいお店を登録', {:controller => "restaurants", :action => "new"} %>
 <br>
 <br>
-
 
 <table>
   <% old_restaurantid = -1 %>
@@ -120,7 +138,11 @@
   <% end %>
 </table>
 <br>
+<<<<<<< HEAD
 <%= link_to '新しいお店を登録', {:controller => "restaurants", :action => "new"} %>
+=======
+<%= link_to 'レストラン情報登録', {:controller => "restaurants", :action => "new"} %>
+>>>>>>> shioi/work
 <br>
 
 

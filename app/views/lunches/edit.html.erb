@@ -2,11 +2,9 @@
 
 <%= render 'form' %>
 
-<%
-=begin
-%><%= link_to 'Show', @lunch %> |
-<%= link_to 'Back', lunches_path %>
-<%
-=end
-%>
-<%= link_to 'ランチ一覧に戻る', {:controller => "summary_lists"} %><br />
+<%= link_to 'Show', @lunch %> |
+<%= link_to 'ランチ一覧に戻る', lunches_path %>
+<br />
+<br />
+<%= link_to 'ランチ検索に行く', {:controller => "summary_lists"} %>
+>>>>>>> shioi/work

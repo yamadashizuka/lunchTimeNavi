@@ -3,29 +3,25 @@
 class SummaryListsController < ApplicationController
 	def index
 	
-		# 評価項目の検索ステータスを作成
-		@rating = Rating.new(:name => '★☆☆')
-		@ratings = Rating.order(:name => 'desc')
-		# ジャンル項目の検索ステータスを作成
-		@genre = Genre.new()
-		@genres = Genre.order(:name)
+		@genres = Genre.all
+		@ratings = Rating.all
 	
 	##---------------------------検索・データ部分------------------------------------------------------
 		@ary = Array.new
 
-		_restaurants = Restaurant.order(:name)
+		restaurants = Restaurant.order(:name)
 		
-		_restaurants.each do |restaurant|
-			_lunches = restaurant.lunches.order(:name)
-			if ( _lunches == nil ) || ( _lunches.size < 1 )
+		restaurants.each do |restaurant|
+			lunches = restaurant.lunches.order(:name)
+			if ( lunches == nil ) || ( lunches.size < 1 )
 				 @ary << [ restaurant, nil, nil ]
 			else
-				_lunches.each do |lunch|
-					_lunch_comments = lunch.lunch_comments.sort_by{|lunch_comment| -lunch_comment.created_at.to_i}
-					if ( _lunch_comments == nil ) || ( _lunch_comments.size < 1 )
+				lunches.each do |lunch|
+					lunch_comments = lunch.lunch_comments.sort_by{|lunch_comment| -lunch_comment.created_at.to_i}
+					if ( lunch_comments == nil ) || ( lunch_comments.size < 1 )
 						@ary << [ restaurant, lunch, nil ]
 					else
-						_lunch_comments.each do |lunch_comment|
+						lunch_comments.each do |lunch_comment|
 							@ary << [ restaurant, lunch, lunch_comment ]
 						end
 					end
@@ -42,60 +38,108 @@ class SummaryListsController < ApplicationController
 
 
 	def search
-		# 評価項目の検索ステータスを作成
-		@rating = Rating.new(:name => '★☆☆')
-		@ratings = Rating.order(:name => 'desc')
-		# ジャンル項目の検索ステータスを作成
-		@genre = Genre.new()
-		@genres = Genre.order(:name)
-		
+		@genres = Genre.all
+		@ratings = Rating.all
 
-	##---------------------------検索・データ部分------------------------------------------------------
 		@ary = Array.new
 		
 		# 検索キーワード
-		restaurantName = params[:restaurantName]
-		address = params[:address]
-		genre = params[:genre][:id]
-		reservation = false
-		if (params[:reservation] == 'on')
-			reservation = true
+		p  params[:search]
+#		p  params[:reservation]
+		search_restaurantName = params[:search][:restaurantName]
+		search_address        = params[:search][:address]
+		search_genre_id       = params[:search][:genre_id]
+		search_rating_id      = params[:search][:rating_id]
+		search_reservation    = params[:search][:reservation]
+		
+		@search = Search.new(search_restaurantName, search_address, search_genre_id, search_rating_id, search_reservation)
+
+		p "search_restaurantName = " + @search.restaurantName
+		p "search_address        = " + @search.address
+		p "search_genre_id       = " + @search.genre_id
+		p "search_rating_id      = " + @search.rating_id
+		p "search_reservation    = " + @search.reservation.to_s
+
+		if @search.reservation
+			@search_reservation   = true
 		else
-			reservation = false
+			@search_reservation   = false
+		end
+		
+		p "@search_reservation   = " + @search_reservation.to_s
+		restaurantName = ""
+		address        = ""
+		genre_id       = ""
+		rating_id      = 0
+		
+		if (@search.restaurantName.nil?) || (@search.restaurantName.size < 1)
+			restaurantName = "%"
+		else
+			restaurantName = "%" + search_restaurantName + "%"
+		end
+		
+		if (@search.address.nil?) || (@search.address.size < 1)
+			address = "%"
+		else
+			address = "%" + search_address + "%"
+		end
+		
+		if (@search.genre_id.nil?) || (@search.genre_id.size < 1)
+			genre_id = "%"
+		else
+			genre_id = search_genre_id
+		end
+		
+		if (@search.rating_id.nil?) || (@search.rating_id.size < 1)
+			rating_id = 0
+		else
+			rating_id = search_rating_id.to_i
+		end
+		
+		if @search.reservation
+			restaurants = Restaurant.all(:conditions => ["name like ? and address like ? and reservation = ?",restaurantName, address, "t"], :order => :name)
+		else
+			restaurants = Restaurant.all(:conditions => ["name like ? and address like ?",restaurantName, address], :order => :name)
 		end
 
-		sql_WhereSentence = 'name like ? AND address like ? AND reservation = ? ', '%' + restaurantName + '%', '%' + address + '%', reservation
-		
-		_restaurants = Restaurant.where(sql_WhereSentence).order(:name)
-		
-		_restaurants.each do |restaurant|
-		    if (genre == '9') 
-		    	_lunches = restaurant.lunches.all()
-		    else
-				_lunches = restaurant.lunches.where('genre_id = ?', genre).order(:name)
-			end
-			if ( _lunches == nil ) || ( _lunches.size < 1 )
-				# ジャンル指定でものがない場合、リスト表示対象外
+		restaurants.each do |restaurant|
+			lunches = Array.new
+			if genre_id == 0
+				lunches = restaurant.lunches.order(:name)
 			else
-				_lunches.each do |lunch|
-					_lunch_comments = lunch.lunch_comments.sort_by{|lunch_comment| -lunch_comment.created_at.to_i}
-					if ( _lunch_comments == nil ) || ( _lunch_comments.size < 1 )
-						@ary << [ restaurant, lunch, nil ]
+				lunches = restaurant.lunches.where("genre_id like ?", genre_id).order(:name)
+			end
+
+			if ( lunches == nil ) || ( lunches.size < 1 )
+				# ジャンル指定なく、かつ、評価指定でない場合、リスト表示対象
+				if ( genre_id == "%" ) && ( rating_id == 0 )
+					@ary << [ restaurant, nil, nil ]
+				end
+			else
+				lunches.each do |lunch|
+					lunch_comments = Array.new
+					if rating_id == 0
+						lunch_comments = lunch.lunch_comments.all
 					else
-						_lunch_comments.each do |lunch_comment|
+						lunch_comments = lunch.lunch_comments.all(:conditions => ["rating_id >= ?", rating_id])
+					end
+					lunch_comments = lunch.lunch_comments.sort_by{|lunch_comment| -lunch_comment.created_at.to_i}
+					if ( lunch_comments == nil ) || ( lunch_comments.size < 1 )
+						# 評価指定でない場合、リスト表示対象
+						if rating_id == 0
+							@ary << [ restaurant, lunch, nil ]
+						end
+					else
+						lunch_comments.each do |lunch_comment|
 							@ary << [ restaurant, lunch, lunch_comment ]
 						end
 					end
 				end
 			end
 		end
-
 		respond_to do |format|
-			format.html # index.html.erb
+			format.html # search.html.erb
 			format.json { render json: @ary }
 		end
-	##---------------------------検索・データ部分------------------------------------------------------
 	end
-
-
 end
