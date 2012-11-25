@@ -107,7 +107,7 @@ class SummaryListsController < ApplicationController
 			if genre_id == 0
 				lunches = restaurant.lunches.order(:name)
 			else
-				lunches = restaurant.lunches.where("genre_id like ?", genre_id).order(:name)
+				lunches = restaurant.lunches.where("genre_id like ?", genre_id.to_s).order(:name)
 			end
             puts "lunches is " + lunches.class.name
 			if ( lunches == nil ) || ( lunches.size < 1 )
