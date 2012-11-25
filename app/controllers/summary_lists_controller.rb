@@ -85,7 +85,7 @@ class SummaryListsController < ApplicationController
 		end
 		
 		if (@search.genre_id.nil?) || (@search.genre_id.size < 1)
-			genre_id = "%"
+			genre_id = 0
 		else
 			genre_id = search_genre_id
 		end
@@ -112,7 +112,7 @@ class SummaryListsController < ApplicationController
             puts "lunches is " + lunches.class.name
 			if ( lunches == nil ) || ( lunches.size < 1 )
 				# ジャンル指定なく、かつ、評価指定でない場合、リスト表示対象
-				if ( genre_id == "%" ) && ( rating_id == 0 )
+				if ( genre_id == 0 ) && ( rating_id == 0 )
 					@ary << [ restaurant, nil, nil ]
 				end
 			else
