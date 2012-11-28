@@ -22,94 +22,10 @@
 <br>
 <br>
 
-<table>
-  <% old_restaurantid = -1 %>
-  <% old_lunchid = -1 %>
-  <tr>
-    <td width="40"></td>
-    <td width="10"></td>
-    <td width="40"></td>
-    <td width="10"></td>
-    <td width="40"></td>
-    <td width="10"></td>
-  </tr>
+<%= render 'list' %>
 
-  <% @ary.each do |restaurant, lunch, lunch_comment| %>
-    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-      <td class="info_restaurant">
-      <% if restaurant.id != old_restaurantid %>
-        <dl>
-          <dt><%= truncate(restaurant.name, {:length => 40}) %></dt>
-          <dd><%= truncate(restaurant.address, {:length => 40}) %></dd>
-          <dd><%= restaurant.startTime.strftime('%H:%M') %> ～ <%= restaurant.endTime.strftime('%H:%M') %></dd>
-        </dl>
-      <% end %>
-      </td >
-      <td class="list_actions" width="50">
-      <% if restaurant.id != old_restaurantid %>
-        <%= link_to '詳細', restaurant %><br />
-        <%= link_to '編集', edit_restaurant_path(restaurant) %><br />
-      <% end %>
-      </td>
-
-      <td class="info_lunch">
-        <dl>
-          <% if lunch.nil? %>
-            <dt>nothing</dt>
-          <% else %>
-            <% if lunch.id != old_lunchid %>
-              <dt><%= truncate(lunch.name, {:length => 60}) %></dt>
-              <dd><%= lunch.genre.name %></dd>
-              <dd><%= number_to_currency(lunch.price, :unit => '円', :precision =>0, :format => '%n%u') %></dd>
-            <% end %>
-          <% end %>
-        <dl>
-      </td>
-      <td class="list_actions" width="50">
-        <% unless lunch.nil? %>
-          <% if lunch.id != old_lunchid %>
-            <%= link_to '詳細', lunch %><br />
-            <%= link_to '編集', edit_lunch_path(lunch) %><br />
-            <%= link_to '追加', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
-          <% end %>
-        <% else %>
-           <%= link_to '追加', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
-      <% end %>
-
-      </td>
-      <td class="info_lunch_comment">
-        <dl>
-        <% if lunch_comment.nil? %>
-          <dt>nothing</dt>
-        <% else %>
-          <dt>評価  <%= lunch_comment.rating.name %></dt>
-          <dd><%= truncate(lunch_comment.name, {:length => 50}) %></dd>
-          <dd><%= truncate(lunch_comment.text, {:length => 60}) %></dd>
-        <% end %>
-        <dl>
-      </td>
-      <td class="list_actions" width="50">
-        <% unless lunch.nil? %>
-          <% unless lunch_comment.nil? %>
-            <%= link_to '詳細', lunch_comment %><br />
-            <%= link_to '編集', edit_lunch_comment_path(lunch_comment) %><br />
-          <% end %>
-            <%= link_to '追加', {:controller => "lunch_comments", :action => "new", :id => lunch.id} %><br />
-        <% end %>
-      </td>
-    </tr>
-   
-   <% unless restaurant.nil? %>
-     <% old_restaurantid = restaurant.id %>
-   <% end %>
-   <% unless lunch.nil? %>
-     <% old_lunchid = lunch.id %>
-   <% end %>
-
-  <% end %>
-</table>
 <br>
-<%= link_to 'レストラン情報登録', {:controller => "restaurants", :action => "new"} %>
+<%= link_to '新しいお店を登録', {:controller => "restaurants", :action => "new"} %>
 <br>
 
 
