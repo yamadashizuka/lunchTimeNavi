@@ -1,21 +1,21 @@
-<h1>Listing restaurants</h1>
+<h1>レストラン 一覧</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>TelephoneNumber</th>
-    <th>Reservation</th>
-    <th>Memo</th>
-    <th>Url</th>
+    <th>店名</th>
+    <th>住所</th>
+    <th>電話</th>
+    <th>予約可？</th>
+    <th>メモ</th>
+    <th>URL</th>
     <th>Email</th>
-    <th>Sun</th>
-    <th>Mon</th>
-    <th>Tue</th>
-    <th>Wed</th>
-    <th>Thu</th>
-    <th>Fri</th>
-    <th>Sat</th>
+    <th>日</th>
+    <th>月</th>
+    <th>火</th>
+    <th>水</th>
+    <th>木</th>
+    <th>金</th>
+    <th>土</th>
     <th>From</th>
     <th>To</th>
     <th></th>
@@ -26,24 +26,24 @@
 <% @restaurants.each do |restaurant| %>
   <tr>
     <td><%= restaurant.name %></td>
-    <td><%= restaurant.address %></td>
+    <td><%= restaurant.postcode %>　<%= restaurant.address %></td>
     <td><%= restaurant.telephoneNumber %></td>
-    <td><%= restaurant.reservation %></td>
+    <td><%= display_bool(restaurant.reservation) %></td>
     <td><%= restaurant.memo %></td>
     <td><%= restaurant.url %></td>
     <td><%= restaurant.email %></td>
-    <td><%= restaurant.sundayUp %></td>
-    <td><%= restaurant.mondayUp %></td>
-    <td><%= restaurant.tuesdayUp %></td>
-    <td><%= restaurant.wednesdayUp %></td>
-    <td><%= restaurant.thursdayUp %></td>
-    <td><%= restaurant.fridayUp %></td>
-    <td><%= restaurant.saturdayUp %></td>
-    <td><%= restaurant.startTime %></td>
-    <td><%= restaurant.endTime %></td>
-    <td><%= link_to 'Show', restaurant %></td>
-    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-    <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= display_bool(restaurant.sundayUp) %></td>
+    <td><%= display_bool(restaurant.mondayUp) %></td>
+    <td><%= display_bool(restaurant.tuesdayUp) %></td>
+    <td><%= display_bool(restaurant.wednesdayUp) %></td>
+    <td><%= display_bool(restaurant.thursdayUp) %></td>
+    <td><%= display_bool(restaurant.fridayUp) %></td>
+    <td><%= display_bool(restaurant.saturdayUp) %></td>
+    <td><%= restaurant.startTime.strftime("%H:%M") %></td>
+    <td><%= restaurant.endTime.strftime("%H:%M")  %></td>
+    <td><%= link_to '詳細', restaurant %></td>
+    <td><%= link_to '編集', edit_restaurant_path(restaurant) %></td>
+    <td><%= link_to '削除', restaurant, method: :delete, data: { confirm: '削除しますか?' } %></td>
   </tr>
 <% end %>
 </table>

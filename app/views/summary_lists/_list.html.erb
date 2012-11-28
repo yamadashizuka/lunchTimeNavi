@@ -16,6 +16,9 @@
       <% if restaurant.id != old_restaurantid %>
         <dl>
           <dt><%= truncate(restaurant.name, {:length => 40}) %></dt>
+          <% unless restaurant.postcode.nil? %>
+            <dd>〒<%= truncate(restaurant.postcode, {:length => 8}) %></dd>
+          <% end %>
           <dd><%= truncate(restaurant.address, {:length => 40}) %></dd>
           <dd><%= restaurant.startTime.strftime('%H:%M') %> ～ <%= restaurant.endTime.strftime('%H:%M') %></dd>
         </dl>
@@ -56,7 +59,7 @@
       <td class="info_lunch_comment">
         <dl>
         <% if lunch_comment.nil? %>
-          <dt>nothing</dt>
+          <dt>（未評価）</dt>
         <% else %>
           <dt>評価  <%= lunch_comment.rating.name %></dt>
           <dd><%= truncate(lunch_comment.name, {:length => 50}) %></dd>
