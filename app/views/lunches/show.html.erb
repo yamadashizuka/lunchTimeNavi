@@ -10,6 +10,12 @@
   <%= @lunch.price %>
 </p>
 
+<p>
+  <b>Genre:</b>
+  <% if @lunch.genre %>
+    <%= @lunch.genre.name %>
+  <% end %>  
+</p>
 
 <%= link_to 'Edit', edit_lunch_path(@lunch) %> |
 <%= link_to 'ランチ一覧に戻る', lunches_path %>

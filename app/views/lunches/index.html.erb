@@ -14,7 +14,11 @@
   <tr>
     <td><%= lunch.name %></td>
     <td><%= lunch.price %></td>
-    <td><%= lunch.genre.name %></td>
+    <% if lunch.genre %>
+      <td><%= lunch.genre.name %></td>
+    <% else %>
+      <td></td>
+    <% end %>
     <td><%= link_to 'Show', lunch %></td>
     <td><%= link_to 'Edit', edit_lunch_path(lunch) %></td>
     <td><%= link_to 'Destroy', lunch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,3 +28,7 @@
 
 <br />
 <%= link_to 'ランチ検索に行く', {:controller => "summary_lists"} %>
+<br />
+<br />
+<%= link_to 'New Lunch', new_lunch_path %>
+

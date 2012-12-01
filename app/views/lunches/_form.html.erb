@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :genre %><br />
-    <%= f.collection_select( :genre_id, @genres, :id, :name ) %>
+    <%= f.collection_select( :genre_id, @genres, :id, :name, :include_blank => true ) %>
   </div>
   <div class="actions">
     <%= f.submit %>
