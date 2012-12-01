@@ -13,3 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# bat file for setting and resetting PROXY
+setproxy.bat
+resetproxy.bat
+

@@ -16,9 +16,6 @@
       <% if restaurant.id != old_restaurantid %>
         <dl>
           <dt><%= truncate(restaurant.name, {:length => 40}) %></dt>
-          <% unless restaurant.postcode.nil? %>
-            <dd>〒<%= truncate(restaurant.postcode, {:length => 8}) %></dd>
-          <% end %>
           <dd><%= truncate(restaurant.address, {:length => 40}) %></dd>
           <dd><%= restaurant.startTime.strftime('%H:%M') %> ～ <%= restaurant.endTime.strftime('%H:%M') %></dd>
         </dl>
@@ -38,7 +35,11 @@
           <% else %>
             <% if lunch.id != old_lunchid %>
               <dt><%= truncate(lunch.name, {:length => 60}) %></dt>
-              <dd><%= lunch.genre.name %></dd>
+              <% if lunch.genre %>
+                <dd><%= lunch.genre.name %></dd>
+              <% else %>
+                <dd></dd>
+              <% end %>
               <dd><%= number_to_currency(lunch.price, :unit => '円', :precision =>0, :format => '%n%u') %></dd>
             <% end %>
           <% end %>
@@ -50,7 +51,6 @@
             <%= link_to '詳細', lunch %><br />
             <%= link_to '編集', edit_lunch_path(lunch) %><br />
             <%= link_to '追加', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
-            <%= link_to image_tag("add.png", :border=>0), :action => 'new2', :controller => 'lunches', :id => restaurant.id  %><br />
           <% end %>
         <% else %>
            <%= link_to '追加', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
@@ -60,13 +60,17 @@
       <td class="info_lunch_comment">
         <dl>
         <% if lunch_comment.nil? %>
-          <dt>（未評価）</dt>
+          <dt>nothing</dt>
         <% else %>
-          <dt>評価  <%= lunch_comment.rating.name %></dt>
+          <dt>評価
+            <% if lunch_comment.rating %>
+              <%= lunch_comment.rating.name %></dt>
+            <% else %>
+              </dt>
+            <% end %>
           <dd><%= truncate(lunch_comment.name, {:length => 50}) %></dd>
-          <dd><%= truncate(lunch_comment.text, {:length => 60}) %></dd> 
-          <dd>(<%= display_time(lunch_comment.updated_at) %>)</dd>
-       <% end %>
+          <dd><%= truncate(lunch_comment.text, {:length => 60}) %></dd>
+        <% end %>
         <dl>
       </td>
       <td class="list_actions" width="50">

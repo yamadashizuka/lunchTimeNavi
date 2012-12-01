@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :rating %><br />
-    <%= f.collection_select( :rating_id, @ratings, :id, :name ) %><br />
+    <%= f.collection_select( :rating_id, @ratings, :id, :name, :include_blank => true ) %><br />
   </div>
   <div class="actions">
     <%= f.submit "登録" %>

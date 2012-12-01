@@ -12,7 +12,10 @@
 
 <p>
   <b>Rating:</b>
-  <%= @lunch_comment.rating.name %>
+  <% if @lunch_comment.rating_id %> 
+    <%= @lunch_comment.rating.name %>
+  <% end %>
+  
 </p>
 <br />
 <%= link_to 'Edit', edit_lunch_comment_path(@lunch_comment) %> |

@@ -5,7 +5,7 @@
   <%= text_field :search, :restaurantName %><br />
   <b>住所</b>
   <%= text_field :search, :address %><br />
-  <b>予約可否</b>
+  <b>予約可？</b>
   <% if @search_reservation %>
     <%= check_box :search, :reservation, {:checked => true}, true, false %>
   <% else %>
