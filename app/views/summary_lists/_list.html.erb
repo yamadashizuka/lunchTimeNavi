@@ -50,7 +50,6 @@
             <%= link_to '詳細', lunch %><br />
             <%= link_to '編集', edit_lunch_path(lunch) %><br />
             <%= link_to '追加', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
-            <%= link_to image_tag("add.png", :border=>0), :action => 'new2', :controller => 'lunches', :id => restaurant.id  %><br />
           <% end %>
         <% else %>
            <%= link_to '追加', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
