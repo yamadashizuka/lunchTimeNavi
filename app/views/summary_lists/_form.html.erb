@@ -1,3 +1,5 @@
+<%= favicon_link_tag %>
+
 <table>
   <% old_restaurantid = -1 %>
   <% old_lunchid = -1 %>
@@ -21,10 +23,10 @@
         </dl>
       <% end %>
       </td >
-      <td class="list_actions" width="50">
+      <td class="list_actions">
       <% if restaurant.id != old_restaurantid %>
-        <%= link_to '詳細', restaurant %><br />
-        <%= link_to '編集', edit_restaurant_path(restaurant) %><br />
+        <%= link_to image_tag("Info.ico", :border=>0, :alt=>"詳細", :size=>"16x16"), restaurant %>
+        <%= link_to image_tag("Edit.ico", :border=>0, :alt=>"編集", :size=>"16x16"), edit_restaurant_path(restaurant) %>
       <% end %>
       </td>
 
@@ -45,15 +47,15 @@
           <% end %>
         <dl>
       </td>
-      <td class="list_actions" width="50">
+      <td class="list_actions" width="16">
         <% unless lunch.nil? %>
           <% if lunch.id != old_lunchid %>
-            <%= link_to '詳細', lunch %><br />
-            <%= link_to '編集', edit_lunch_path(lunch) %><br />
-            <%= link_to '追加', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
+            <%= link_to image_tag("Info.ico", :border=>0, :alt=>"詳細", :size=>"16x16"), lunch %>
+            <%= link_to image_tag("Edit.ico", :border=>0, :alt=>"編集", :size=>"16x16"), edit_lunch_path(lunch) %>
+            <%= link_to image_tag("New_Lunch.ico", :border=>0, :alt=>"新規", :size=>"16x16"), {:controller => "lunches", :action => "new2", :id => restaurant.id} %>
           <% end %>
         <% else %>
-           <%= link_to '追加', {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
+           <%= link_to image_tag("New_Lunch.ico", :border=>0, :alt=>"新規", :size=>"16x16"), {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
       <% end %>
 
       </td>
@@ -73,13 +75,13 @@
         <% end %>
         <dl>
       </td>
-      <td class="list_actions" width="50">
+      <td class="list_actions" width="16">
         <% unless lunch.nil? %>
           <% unless lunch_comment.nil? %>
-            <%= link_to '詳細', lunch_comment %><br />
-            <%= link_to '編集', edit_lunch_comment_path(lunch_comment) %><br />
+            <%= link_to image_tag("Info.ico", :border=>0, :alt=>"詳細", :size=>"16x16"), lunch_comment %>
+            <%= link_to image_tag("Edit.ico", :border=>0, :alt=>"編集", :size=>"16x16"), edit_lunch_comment_path(lunch_comment) %>
           <% end %>
-            <%= link_to '追加', {:controller => "lunch_comments", :action => "new", :id => lunch.id} %><br />
+            <%= link_to image_tag("New_Comment.ico", :border=>0, :alt=>"新規", :size=>"16x16"), {:controller => "lunch_comments", :action => "new", :id => lunch.id} %>
         <% end %>
       </td>
     </tr>
