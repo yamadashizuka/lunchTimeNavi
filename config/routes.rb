@@ -1,5 +1,7 @@
 LunchTimeNavi::Application.routes.draw do
 
+  resources :congestions
+
   root :to => 'signup#signup'      
 
   resources :summary_lists, :only => [:index]

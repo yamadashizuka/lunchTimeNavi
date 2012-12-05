@@ -28,6 +28,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new()
     @genres = Genre.all
     @ratings = Rating.all
+    @congestions = Congestion.all
 
     #セッション情報から現在のログインユーザーをセットする。
     #（情報がある場合のみセット）
@@ -44,6 +45,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1/edit
   def edit
     @restaurant = Restaurant.find(params[:id])
+    @congestions = Congestion.all
   end
 
   # POST /restaurants
@@ -87,6 +89,7 @@ class RestaurantsController < ApplicationController
   # PUT /restaurants/1.json
   def update
     @restaurant = Restaurant.find(params[:id])
+    @congestions = Congestion.all
 
     respond_to do |format|
       if @restaurant.update_attributes(params[:restaurant])
