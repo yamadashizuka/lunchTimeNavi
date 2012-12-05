@@ -18,7 +18,14 @@
       <% if restaurant.id != old_restaurantid %>
         <dl>
           <dt><%= truncate(restaurant.name, {:length => 40}) %></dt>
-          <% unless restaurant.postcode.nil? %>
+          <dd>
+              <% if restaurant.congestion %>
+                ( 混雑度：<%= restaurant.congestion.name %> )
+              <% else %>
+                ( 混雑度：未登録 )
+              <% end %>
+          </dd>
+          <% if restaurant.postcode %>
             <dd>〒<%= truncate(restaurant.postcode, {:length => 8}) %></dd>
           <% end %>
           <dd><%= truncate(restaurant.address, {:length => 40}) %></dd>

@@ -91,6 +91,12 @@
     <%= f.label :To %><br />
     <%= f.time_select :endTime, :default => Time.gm(2012, 11, 11, 15, 00, 00) , :minute_step => 15 %>
   </div>
+  <div class="field">
+    <%= f.label :congestion %><br />
+    <%= f.collection_select( :congestion_id, @congestions, :id, :name, :include_blank => true ) %><br />
+  </div>
+
+
 
 </TD></TR></TABLE>
 

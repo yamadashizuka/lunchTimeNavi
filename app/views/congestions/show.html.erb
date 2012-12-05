@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @congestion.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @congestion.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_congestion_path(@congestion) %> |
+<%= link_to 'Back', congestions_path %>
