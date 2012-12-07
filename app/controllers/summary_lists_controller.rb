@@ -1,12 +1,12 @@
 # coding: utf-8
 
 class SummaryListsController < ApplicationController
+	# 初期表示 -----------------------------------------------
 	def index
 	
 		@genres = Genre.all
 		@ratings = Rating.all
 	
-	##---------------------------検索・データ部分------------------------------------------------------
 		@ary = Array.new
 
 		restaurants = Restaurant.order(:name)
@@ -29,15 +29,18 @@ class SummaryListsController < ApplicationController
 			end
 		end
 
-		respond_to do |format|
-			format.html # index.html.erb
-			format.json { render json: @ary }
-		end
-	##---------------------------検索・データ部分------------------------------------------------------
+    render :search
+		# respond_to do |format|
+		#	format.html # index.html.erb
+		#	format.json { render json: @ary }
+		# end
+
 	end
 
 
 	def search
+	# 検索処理 -----------------------------------------------
+
 		@genres = Genre.all
 		@ratings = Rating.all
 
@@ -45,7 +48,6 @@ class SummaryListsController < ApplicationController
 		
 		# 検索キーワード
 		p  params[:search]
-#		p  params[:reservation]
 		search_restaurantName = params[:search][:restaurantName]
 		search_address        = params[:search][:address]
 		search_genre_id       = params[:search][:genre_id]
@@ -54,11 +56,12 @@ class SummaryListsController < ApplicationController
 		
 		@search = Search.new(search_restaurantName, search_address, search_genre_id, search_rating_id, search_reservation)
 
-		p "search_restaurantName = " + @search.restaurantName
-		p "search_address        = " + @search.address
-		p "search_genre_id       = " + @search.genre_id
-		p "search_rating_id      = " + @search.rating_id
-		p "search_reservation    = " + @search.reservation.to_s
+		# debug code
+		#p "search_restaurantName = " + @search.restaurantName
+		#p "search_address        = " + @search.address
+		#p "search_genre_id       = " + @search.genre_id
+		#p "search_rating_id      = " + @search.rating_id
+		#p "search_reservation    = " + @search.reservation.to_s
 
 		if @search.reservation
 			@search_reservation   = true
