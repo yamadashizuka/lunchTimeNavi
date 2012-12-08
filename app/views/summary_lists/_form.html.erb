@@ -42,9 +42,7 @@
 
       <td class="info_lunch">
         <dl>
-          <% if lunch.nil? %>
-            <dt>nothing</dt>
-          <% else %>
+          <% if lunch %>
             <% if lunch.id != old_lunchid %>
               <dt><%= truncate(lunch.name, {:length => 60}) %></dt>
               <% if lunch.genre %>
@@ -54,11 +52,13 @@
               <% end %>
               <dd><%= number_to_currency(lunch.price, :unit => '円', :precision =>0, :format => '%n%u') %></dd>
             <% end %>
+          <% else %>
+            <dt>ランチ：未登録</dt>
           <% end %>
         <dl>
       </td>
       <td class="list_actions" width="16">
-        <% unless lunch.nil? %>
+        <% if lunch %>
           <% if lunch.id != old_lunchid %>
             <%= link_to image_tag("Info.ico", :border=>0, :alt=>"詳細", :size=>"16x16"), lunch %>
             <%= link_to image_tag("Edit.ico", :border=>0, :alt=>"編集", :size=>"16x16"), edit_lunch_path(lunch) %>
@@ -71,23 +71,22 @@
       </td>
       <td class="info_lunch_comment">
         <dl>
-        <% if lunch_comment.nil? %>
-          <dt>nothing</dt>
-        <% else %>
-          <dt>評価
-            <% if lunch_comment.rating %>
-              <%= lunch_comment.rating.name %></dt>
-            <% else %>
-              </dt>
-            <% end %>
+        <% if lunch_comment %>
+          <% if lunch_comment.rating %>
+            <dt>評価：<%= lunch_comment.rating.name %></dt>
+          <% else %>
+            <dt>評価：未評価</dt>
+          <% end %>
           <dd><%= truncate(lunch_comment.name, {:length => 50}) %></dd>
           <dd><%= truncate(lunch_comment.text, {:length => 60}) %></dd>
           <dd>(<%= display_time(lunch_comment.updated_at) %>)</dd>
+        <% else %>
+          <dt>コメント：未登録</dt>
         <% end %>
         <dl>
       </td>
       <td class="list_actions" width="16">
-        <% unless lunch.nil? %>
+        <% if lunch %>
           <% unless lunch_comment.nil? %>
             <%= link_to image_tag("Info.ico", :border=>0, :alt=>"詳細", :size=>"16x16"), lunch_comment %>
             <%= link_to image_tag("Edit.ico", :border=>0, :alt=>"編集", :size=>"16x16"), edit_lunch_comment_path(lunch_comment) %>
@@ -106,3 +105,4 @@
 
   <% end %>
 </table>
+<br />
