@@ -1,7 +1,12 @@
 <%= favicon_link_tag %>
 <form action="signedup" method="get">
 
-<h1>らんちたいむなびへようこそ！</h1>おなかすきましたね！
+<h1>らんちたいむなびへようこそ！</h1>
+<br>
+おなかすきましたね！
+<br>
+<img border="0" src="/lunch01-1.png" width="256" alt="イラスト">
+<br>
 <br>
 <table>
   <tr>
@@ -13,6 +18,7 @@
     <td><%= password_field_tag :password, params[:password] %></td>
   </tr>
   <tr>
+    <td></td>
     <td><input name="loginButton" type="submit" value="入る"></td>
   </tr>
 </table>
