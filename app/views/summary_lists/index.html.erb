@@ -5,7 +5,7 @@
   <%= text_field :search, :restaurantName %><br />
   <b>住所</b>
   <%= text_field :search, :address %><br />
-  <b>予約可否</b>
+  <b>予約可？</b>
   <%= check_box :search, :reservation, {:checked => false}, true, false %>
   <b>ジャンル</b>
   <%= collection_select(:search, :genre_id, @genres, :id, :name, :include_blank => true) %>
@@ -17,9 +17,7 @@
 <% end %>
 
 <br>
-<br>
 <%= link_to '新しいお店を登録', {:controller => "restaurants", :action => "new"} %>
-<br>
 <br>
 
 <%= render 'form' %>
