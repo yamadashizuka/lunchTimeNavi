@@ -44,10 +44,10 @@
           <% if lunch.id != old_lunchid %>
             <%= link_to image_tag("Info.ico", :border=>0, :alt=>"詳細", :size=>"16x16"), lunch %>
             <%= link_to image_tag("Edit.ico", :border=>0, :alt=>"編集", :size=>"16x16"), edit_lunch_path(lunch) %>
-            <%= link_to image_tag("New_Lunch.ico", :border=>0, :alt=>"新規", :size=>"16x16"), {:controller => "lunches", :action => "new2", :id => restaurant.id} %>
+            <%= link_to image_tag("New_Lunch.ico", :border=>0, :alt=>"新規", :size=>"16x16"), {:controller => "lunches", :action => "new", :id => restaurant.id} %>
           <% end %>
         <% else %>
-           <%= link_to image_tag("New_Lunch.ico", :border=>0, :alt=>"新規", :size=>"16x16"), {:controller => "lunches", :action => "new2", :id => restaurant.id} %><br />
+           <%= link_to image_tag("New_Lunch.ico", :border=>0, :alt=>"新規", :size=>"16x16"), {:controller => "lunches", :action => "new", :id => restaurant.id} %><br />
       <% end %>
       </td>
       <td class="info_lunch">
