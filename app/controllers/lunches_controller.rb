@@ -26,7 +26,8 @@ class LunchesController < ApplicationController
   def new
     @lunch = Lunch.new
     @genres = Genre.all
-    @restaurants = Restaurant.all
+    @restaurant = Restaurant.find(params[:id])
+    @lunch.restaurant_id = @restaurant.id
     
     respond_to do |format|
       format.html # new.html.erb
@@ -38,7 +39,8 @@ class LunchesController < ApplicationController
   def edit
     @lunch = Lunch.find(params[:id])
     @genres = Genre.all
-    @restaurants = [ @lunch.restaurant ]
+    @restaurant = Restaurant.find(@lunch.restaurant_id)
+
   end
 
   # POST /lunches

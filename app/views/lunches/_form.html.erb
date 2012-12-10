@@ -13,7 +13,8 @@
   
   <div class="field">
     <%= f.label :restaurant %><br />
-    <%= f.collection_select( :restaurant_id, @restaurants, :id, :name ) %>
+    <%= @restaurant.name %>
+    <%= hidden_field :lunch, :restaurant_id %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
