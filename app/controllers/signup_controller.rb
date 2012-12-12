@@ -12,20 +12,19 @@ class SignupController < ApplicationController
     session[:username] = name
      if !(name.nil?) then      
       # 既に登録されているか調べる
-      # currentUser = User.where(:name => name).first
-      currentUser = User.where(:name => name,:password => password).first
+      currentUser = User.where(:name => name).first
       if currentUser.nil? then
         # 登録が無ければ、ユーザ登録画面へ
         puts '* not found *' + currentUser.class.name
         render :action => 'registerNewUser'
       elsif password != currentUser.password then
         puts '* not found *' + currentUser.class.name
-        render :action => 'registerNewUser'
+        redirect_to :action => 'signup'    # 修正中　 {:alert => 'パスワードがまちがっています。'}
       else
         # 登録があれば、ユーザオブジェクトをセッションに保管して、検索条件画面へ
         puts '* found *' + currentUser.class.name
         session[:currentUser] = currentUser
-        redirect_to :controller => 'summary_lists', :action => 'index'        # 仮実装(本当はランチ情報検索条件画面にリダイレクト）
+        redirect_to :controller => 'summary_lists', :action => 'index' 
       end
     end
   end
@@ -70,6 +69,6 @@ class SignupController < ApplicationController
     session[:currentUser] 	= currentUser
     currentUser.save()
     
-    redirect_to :controller => 'summary_lists', :action => 'index'        # 仮実装(本当はランチ情報検索条件画面にリダイレクト）
+    redirect_to :controller => 'summary_lists', :action => 'index'   
   end
 end
