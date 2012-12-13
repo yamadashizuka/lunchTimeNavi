@@ -1,15 +1,18 @@
-<table>
+<table class="restrantTable">
   <% old_restaurantid = -1 %>
   <% old_lunchid = -1 %>
-  <tr>
-    <td width="40"></td>
-    <td width="10"></td>
-    <td width="40"></td>
-    <td width="10"></td>
-    <td width="40"></td>
-    <td width="10"></td>
-  </tr>
+  
+  <% if !(@ary == nil || @ary.length == 0) %>
+    <thead class="restrantTable">
+      <tr bgcolor="#A9A9A9">
+        <th align="center" colspan="2" style="font-weight:bold">レストラン</th>
+        <th align="center" colspan="2" style="font-weight:bold">ランチ</th>
+        <th align="center" colspan="2" style="font-weight:bold">コメント</th>
+      </tr>
+    </thead>
+  <% end %>
 
+  <tbody>
   <% @ary.each do |restaurant, lunch, lunch_comment| %>
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
       </td >
@@ -83,13 +86,13 @@
         <dl>
       </td>
     </tr>
-   
    <% unless restaurant.nil? %>
      <% old_restaurantid = restaurant.id %>
    <% end %>
    <% unless lunch.nil? %>
      <% old_lunchid = lunch.id %>
    <% end %>
-
   <% end %>
+  </tbody>
 </table>
+</div>
