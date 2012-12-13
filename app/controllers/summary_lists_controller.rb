@@ -6,9 +6,12 @@ class SummaryListsController < ApplicationController
   
     @genres = Genre.all
     @ratings = Rating.all
-    @commentRegistDateFrom = (Date.today-90).strftime("%Y/%m/%d").to_s
+    @commentRegistDateFrom = (Date.today-180).strftime("%Y/%m/%d").to_s
     @commentRegistDateTo = Date.today.strftime("%Y/%m/%d").to_s
-  
+
+    search_commentRegistDateFrom = @commentRegistDateFrom.gsub(/\//, "-") + " 00:00:00.000000"
+    search_commentRegistDateTo = @commentRegistDateTo.gsub(/\//, "-") + " 00:00:00.000000"
+
     @ary = Array.new
 
     restaurants = Restaurant.order(:name)
@@ -19,7 +22,7 @@ class SummaryListsController < ApplicationController
          @ary << [ restaurant, nil, nil ]
       else
         lunches.each do |lunch|
-          lunch_comments = lunch.lunch_comments.sort_by{|lunch_comment| -lunch_comment.created_at.to_i}
+          lunch_comments = lunch.lunch_comments.all(:order => "created_at", :conditions => ["? <= updated_at and updated_at <= ?", search_commentRegistDateFrom, search_commentRegistDateTo])
           if ( lunch_comments == nil ) || ( lunch_comments.size < 1 )
             @ary << [ restaurant, lunch, nil ]
           else
