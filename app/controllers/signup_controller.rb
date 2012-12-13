@@ -19,7 +19,9 @@ class SignupController < ApplicationController
         render :action => 'registerNewUser'
       elsif password != currentUser.password then
         puts '* not found *' + currentUser.class.name
-        redirect_to :action => 'signup'    # 修正中　 {:alert => 'パスワードがまちがっています。'}
+        #redirect_to :action => 'signup'    # 修正中　 {:alert => 'パスワードがまちがっています。'}
+        #redirect_to :action => 'signup', :notice => 'password error
+        render :text => 'パスワードがまちがっています。', :status => 500
       else
         # 登録があれば、ユーザオブジェクトをセッションに保管して、検索条件画面へ
         puts '* found *' + currentUser.class.name
