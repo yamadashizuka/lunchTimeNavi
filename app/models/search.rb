@@ -10,4 +10,12 @@ class Search
     @reservation    = params[:reservation]
   end
   
+  def initialize(restaurantName, address, genre_id, rating_id, reservation)
+    @restaurantName = restaurantName
+    @address        = address
+    @genre_id       = genre_id
+    @rating_id      = rating_id
+    @reservation    = reservation
+  end
+
 end
