@@ -35,10 +35,10 @@ class SummaryListsController < ApplicationController
     end
 
     render :search
-		# respond_to do |format|
+		#respond_to do |format|
 		#	format.html # index.html.erb
 		#	format.json { render json: @ary }
-		# end
+		#end
 
 	end
 
@@ -155,10 +155,11 @@ class SummaryListsController < ApplicationController
         end
       end
     end
-    respond_to do |format|
-      format.html # search.html.erb
-      format.json { render json: @ary }
-    end
+    render :search
+    #respond_to do |format|
+    #  format.html # search.html.erb
+    #  format.json { render json: @ary }
+    #end
   end
 end
   
