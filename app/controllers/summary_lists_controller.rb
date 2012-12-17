@@ -115,7 +115,7 @@ class SummaryListsController < ApplicationController
     if (search_commentRegistDateTo.nil?) || (search_commentRegistDateTo.size < 1)
       search_commentRegistDateTo = "9999-12-31 23:59:59.000000"
     else
-      search_commentRegistDateTo = search_commentRegistDateTo.gsub(/\//, "-") + " 00:00:00.000000"
+      search_commentRegistDateTo = search_commentRegistDateTo.gsub(/\//, "-") + " 23:59:59.000000"
     end
 
 

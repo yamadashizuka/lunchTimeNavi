@@ -1,0 +1,107 @@
+body{
+  background-image:url(../images/xv.png);
+  background-color:#EEEEFF;
+}
+
+/*角丸の四角を表示する*/
+#square{
+  width: 400px;
+  border: 1px solid #888888;
+  background-color:#EEEEEE;
+  padding: 20px;
+  -moz-border-radius: 10px;    /* Firefox用 */  
+  -webkit-border-radius: 10px; /* Safari,Google Chrome用 */  
+  border-radius: 10px;         /* CSS3 */  
+}  
+
+
+/*マウスが行に当たった際に色を変える*/
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+}
+
+.bordered tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.zebra tbody tr:nth-child(even) {
+    background: #f5f5f5;
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+}
+
+/*レストラン情報のバックグラウンド*/
+.restaurant{
+  border: 1px, solid, #888888;
+  background: #aaffaa;
+  padding: 15px;
+/*
+    -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+*/
+}
+
+/*ランチ情報のバックグラウンド*/
+.lunch{
+  border: 1px, solid, #888888;
+  background: #ffaaaa;
+  padding:15px;/*内側の余白*/
+
+    -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+}
+
+/*ランチコメント情報のバックグラウンド*/
+.lunch_comment{
+  border: 1px, solid, #888888;
+  background: #FFaa22;
+  padding:15px;/*内側の余白*/
+
+    -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+    border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
+}
+
+
+/*ボタンの設定*/
+.btn{
+    background: -moz-linear-gradient(top,#FFF 0%,#FFF 3%,#E6E6E6 3%,#FFF);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFF), color-stop(0.03,#FFF), color-stop(0.03,#E6E6E6), to(#FFF));
+    color: #111;
+    border: 1px solid #CCC;
+    border-bottom: 2px solid #0099CC;
+    width: 100px; 
+    padding: 10px 0;
+
+    -moz-border-radius: 8px 8px 3px 3px /  8px 8px 3px 3px ;
+    -webkit-border-radius:  8px 8px 3px 3px /  8px 8px 3px 3px ;
+    border-radius:  8px 8px 3px 3px /  8px 8px 3px 3px ;
+}
+
+.btn:hover{
+    background: -moz-linear-gradient(top,#DDF 0%,#DDF 3%,#C6C6C6 3%,#DDF);
+    background: -webkit-gradient(linear, left top, left bottom, from(#DDF), color-stop(0.03,#DDF), color-stop(0.03,#C6C6C6), to(#DDF));
+}
+
+
+.btn:active{
+   padding-top:16px;
+   padding-bottom:14px;
+
+/*    border:1px solid #334c66; */
+    color:#eeebf5;
+
+    background-color:#69c;
+    -moz-box-shadow:inset 0px 0px 2px #3a6da0;
+    -webkit-box-shadow:inset 0px 0px 8px #334c66;
+    box-shadow:inset 0px 0px 2px #3a6da0;
+}
