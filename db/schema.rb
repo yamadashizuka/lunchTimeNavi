@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205084523) do
+ActiveRecord::Schema.define(:version => 20121217010457) do
 
   create_table "congestions", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20121205084523) do
     t.integer  "restaurant_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.boolean  "withdrink"
   end
 
   add_index "lunches", ["genre_id"], :name => "index_lunches_on_genre_id"
