@@ -1,23 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Text:</b>
+  <b><%= label :lunch_comment, :text %>:</b>
   <%= @lunch_comment.text %>
 </p>
 
 <p>
-  <b>Name:</b>
+  <b><%= label :lunch_comment, :name %>:</b>
   <%= @lunch_comment.name %>
 </p>
 
 <p>
-  <b>Rating:</b>
+  <b><%= label :lunch_comment, :rating_id %>:</b>
   <% if @lunch_comment.rating_id %> 
     <%= @lunch_comment.rating.name %>
   <% end %>
   
 </p>
-<br />
-<%= link_to 'Edit', edit_lunch_comment_path(@lunch_comment) %> |
-<br />
 <%= link_to '検索・一覧画面へ', {:controller => "summary_lists"} %>

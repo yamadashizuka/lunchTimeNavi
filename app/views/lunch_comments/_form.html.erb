@@ -20,7 +20,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :rating %><br />
+    <%= f.label :rating_id %><br />
     <%= f.collection_select( :rating_id, @ratings, :id, :name, :include_blank => true ) %>
   </div>
   <div class="actions">

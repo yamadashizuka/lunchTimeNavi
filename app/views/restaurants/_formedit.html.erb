@@ -53,46 +53,46 @@
 
 開店日<BR />
   <div class="field">
-    <%= f.label :sun %>
+    <%= f.label :sundayUp %>
     <%= f.check_box :sundayUp %>
   </div>
   <div class="field">
-    <%= f.label :mon %>
+    <%= f.label :mondayUp %>
     <%= f.check_box :mondayUp %>
   </div>
   <div class="field">
-    <%= f.label :tue %>
+    <%= f.label :tuesdayUp %>
     <%= f.check_box :tuesdayUp %>
   </div>
   <div class="field">
-    <%= f.label :wed %>
+    <%= f.label :wednesdayUp %>
     <%= f.check_box :wednesdayUp %>
   </div>
   <div class="field">
-    <%= f.label :thu %>
+    <%= f.label :thursdayUp %>
     <%= f.check_box :thursdayUp %>
   </div>
   <div class="field">
-    <%= f.label :fri %>
+    <%= f.label :fridayUp %>
     <%= f.check_box :fridayUp %>
   </div>
   <div class="field">
-    <%= f.label :sat %>
+    <%= f.label :saturdayUp %>
     <%= f.check_box :saturdayUp %>
   </div>
 
 </TD><TD VALIGN="TOP"><br />
 ランチタイム<BR />
   <div class="field">
-    <%= f.label :From %><br />
+    <%= f.label :startTime %><br />
     <%= f.time_select :startTime, :default => Time.gm(2012, 11, 11, 11, 00, 00) , :minute_step => 15 %>
   </div>
   <div class="field">
-    <%= f.label :To %><br />
+    <%= f.label :endTime %><br />
     <%= f.time_select :endTime, :default => Time.gm(2012, 11, 11, 15, 00, 00) , :minute_step => 15 %>
   </div>
   <div class="field">
-    <%= f.label :congestion %><br />
+    <%= f.label :congestion_id %><br />
     <%= f.collection_select( :congestion_id, @congestions, :id, :name, :include_blank => true ) %><br />
   </div>
 

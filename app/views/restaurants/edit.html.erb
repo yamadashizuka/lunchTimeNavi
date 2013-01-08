@@ -1,6 +1,10 @@
 <h1>レストラン情報変更</h1>
-
+<div id="menu">
+  <ul>
+    <li><%= link_to 'TOP', {:controller => "summary_lists"} %></li>
+  </ul>
+</div>
+<br>
 <%= render 'formedit' %>
 
 <br />
-<%= link_to '検索・一覧画面へ', {:controller => "summary_lists"} %><br />

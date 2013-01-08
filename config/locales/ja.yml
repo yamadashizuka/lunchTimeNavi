@@ -1,0 +1,43 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ja:
+  activerecord: 
+    models:
+      restaurant: 'レストラン'
+    attributes:
+      restaurant:
+        name: "レストラン名"
+        address: '住所'
+        telephoneNumber: '電話番号'
+        reservation: '予約可？'
+        memo: 'メモ'
+        url: 'URL'
+        email: 'メールアドレス'
+        sundayUp: '日'
+        mondayUp: '月'
+        tuesdayUp: '火'
+        wednesdayUp: '水'
+        thursdayUp: '木'
+        fridayUp: '金'
+        saturdayUp: '土'
+        startTime: 'From'
+        endTime: 'To'
+        postcode: '郵便番号'
+        congestion_id: '混雑度'
+      lunch:
+        restaurant: 'レストラン名'
+        name: 'ランチ名'
+        price: '価格'
+        restaurant_id: 'レストラン名'
+        genre_id: 'ジャンル'
+        withdrink: 'ドリンク付き'
+      lunch_comment:
+        text: 'コメント'
+        name: 'ユーザー名'
+        rating_id: '評価'
+      genre:
+        name: 'ジャンル'
+      rating:
+        name: '評価'
+        value: '値'
