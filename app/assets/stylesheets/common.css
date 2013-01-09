@@ -38,15 +38,13 @@ table {
 }
 
 /*レストラン情報のバックグラウンド*/
-.restaurant{
+table.restaurant{
   border: 1px, solid, #888888;
   background: #aaffaa;
   padding: 15px;
-/*
     -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
     -webkit-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
-*/
 }
 
 /*ランチ情報のバックグラウンド*/
@@ -106,27 +104,25 @@ table {
     box-shadow:inset 0px 0px 2px #3a6da0;
 }
 
-/*メニューバー用のデータ*/
+/*メニューバー*/
 #menu {
     background-color:#9999ff;
+    padding:0;
+    margin:0;
 }
 #menu ul {
-    height:30px; 
-    margin-left:100px;
-    border-left:1px solid #ffffff;
+    border:1px solid #ffffff;
 }
 
 #menu li {
-    width:130px;
-    float:left; 
-    list-style-type:none;
+    display:inline;
 }
 
-#menu a {
+#menu li a {
+    width:130px;
     border-top:1px solid #9999ff;
     border-bottom:1px solid #9999ff;
     border-right:1px solid #ffffff;
-    padding:3px;
     display:block;
     line-height:22px;
     text-align:center;
@@ -140,3 +136,4 @@ table {
     color:#9999ff;
     background-color:#ffffff;
 }
+

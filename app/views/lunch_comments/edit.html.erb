@@ -1,9 +1,7 @@
 <h1>ランチコメント修正</h1>
-
+<div id="menu">
+  <ul>
+   <li><%= link_to 'TOP', {:controller => "summary_lists"} %></li>
+  </ul>
+</div>
 <%= render 'form' %>
-
-<%= link_to 'Show', @lunch_comment %> |
-<%= link_to 'コメント一覧に戻る', lunch_comments_path %>
-<br />
-<br />
-<%= link_to '検索・一覧画面へ', {:controller => "summary_lists"} %><br />
