@@ -38,15 +38,13 @@ table {
 }
 
 /*レストラン情報のバックグラウンド*/
-.restaurant{
+table.restaurant{
   border: 1px, solid, #888888;
   background: #aaffaa;
   padding: 15px;
-/*
     -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
     -webkit-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
-*/
 }
 
 /*ランチ情報のバックグラウンド*/
@@ -63,7 +61,7 @@ table {
 /*ランチコメント情報のバックグラウンド*/
 .lunch_comment{
   border: 1px, solid, #888888;
-  background: #FFaa22;
+  background: #ffaa22;
   padding:15px;/*内側の余白*/
 
     -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
@@ -72,7 +70,7 @@ table {
 }
 
 
-/*ボタンの設定*/
+/*ボタンの設定…未実装です。*/
 .btn{
     background: -moz-linear-gradient(top,#FFF 0%,#FFF 3%,#E6E6E6 3%,#FFF);
     background: -webkit-gradient(linear, left top, left bottom, from(#FFF), color-stop(0.03,#FFF), color-stop(0.03,#E6E6E6), to(#FFF));
@@ -105,3 +103,37 @@ table {
     -webkit-box-shadow:inset 0px 0px 8px #334c66;
     box-shadow:inset 0px 0px 2px #3a6da0;
 }
+
+/*メニューバー*/
+#menu {
+    background-color:#9999ff;
+    padding:0;
+    margin:0;
+}
+#menu ul {
+    border:1px solid #ffffff;
+}
+
+#menu li {
+    display:inline;
+}
+
+#menu li a {
+    width:130px;
+    border-top:1px solid #9999ff;
+    border-bottom:1px solid #9999ff;
+    border-right:1px solid #ffffff;
+    display:block;
+    line-height:22px;
+    text-align:center;
+    font-size:12px;
+    font-weight:bold;
+    color:#ffffff;
+    background-color:#9999ff;
+}
+
+#menu a:hover {
+    color:#9999ff;
+    background-color:#ffffff;
+}
+

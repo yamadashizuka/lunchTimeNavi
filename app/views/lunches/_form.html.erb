@@ -29,7 +29,7 @@
     <%= f.check_box :withdrink %>
   </div>
   <div class="field">
-    <%= f.label :genre %><br />
+    <%= f.label :genre_id %><br />
     <%= f.collection_select( :genre_id, @genres, :id, :name, :include_blank => true ) %>
   </div>
   <div class="actions">

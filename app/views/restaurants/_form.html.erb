@@ -10,8 +10,9 @@
       </ul>
     </div>
   <% end %>
-<TABLE BORDER=0 CELLPADDING=10 BGCOLOR="LIME"><TR><TD VALIGN="TOP">
+<TABLE class="restaurant"><TR><TD VALIGN="TOP">
 
+-- レストラン情報 --<BR />
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -52,46 +53,46 @@
 
 開店日<BR />
   <div class="field">
-    <%= f.label :sun %>
+    <%= f.label :sundayUp %>
     <%= f.check_box :sundayUp %>
   </div>
   <div class="field">
-    <%= f.label :mon %>
+    <%= f.label :mondayUp %>
     <%= f.check_box :mondayUp %>
   </div>
   <div class="field">
-    <%= f.label :tue %>
+    <%= f.label :tuesdayUp %>
     <%= f.check_box :tuesdayUp %>
   </div>
   <div class="field">
-    <%= f.label :wed %>
+    <%= f.label :wednesdayUp %>
     <%= f.check_box :wednesdayUp %>
   </div>
   <div class="field">
-    <%= f.label :thu %>
+    <%= f.label :thursdayUp %>
     <%= f.check_box :thursdayUp %>
   </div>
   <div class="field">
-    <%= f.label :fri %>
+    <%= f.label :fridayUp %>
     <%= f.check_box :fridayUp %>
   </div>
   <div class="field">
-    <%= f.label :sat %>
+    <%= f.label :saturdayUp %>
     <%= f.check_box :saturdayUp %>
   </div>
 
 </TD><TD VALIGN="TOP"><br />
 ランチタイム<BR />
   <div class="field">
-    <%= f.label :From %><br />
+    <%= f.label :startTime %><br />
     <%= f.time_select :startTime, :default => Time.gm(2012, 11, 11, 11, 00, 00) , :minute_step => 15 %>
   </div>
   <div class="field">
-    <%= f.label :To %><br />
+    <%= f.label :endTime %><br />
     <%= f.time_select :endTime, :default => Time.gm(2012, 11, 11, 15, 00, 00) , :minute_step => 15 %>
   </div>
   <div class="field">
-    <%= f.label :congestion %><br />
+    <%= f.label :congestion_id %><br />
     <%= f.collection_select( :congestion_id, @congestions, :id, :name, :include_blank => true ) %><br />
   </div>
 
@@ -102,51 +103,72 @@
 <!-- lunch --->
 
 <TABLE BORDER=0 CELLPADDING=5 CELLSPACING=1>
-<TR><TD BGCOLOR="PINK" VALIGN="TOP">
+<TR><TD class="lunch">
 
 -- ランチ情報 --<BR />
 
 <!-- lunch --->
 <%= f.fields_for :lunch do |f2| %>
   <div class="field">
-    <%= f2.label :name %><br />
-    <%= f2.text_field :name %>
+<!--
+	<%= f2.label :name %><br />
+-->
+    ランチ名<br />
+	<%= f2.text_field :name %>
   </div>
   <div class="field">
+<!--
     <%= f2.label :price %><br />
+-->
+    価格<br />
     <%= f2.number_field :price %>
   </div>
   <div class="field">
+<!--
     <%= f2.label :withdrink %>
+-->
+    ドリンク付き<br />
     <%= f2.check_box :withdrink %>
   </div>
 
 <!-- genre --->
   <div class="field">
+<!--
     <%= f2.label :genre %><br />
+-->
+    ジャンル<br />
     <%= f2.collection_select( :genre_id, @genres, :id, :name ) %>
   </div>
 
 </TD>
-<TD BGCOLOR="ORANGE" VALIGN="TOP">
+<TD class="lunch_comment" VALIGN="TOP">
 
 -- コメント --<BR />
 
 <!-- lunch_comment --->
 <%= f2.fields_for :lunch_comment do |f3| %>
   <div class="field">
+<!--
     <%= f3.label :text %><br />
+-->
+    コメント<br />
     <%= f3.text_area :text, :size=>"45x4" %>
   </div>
   <div class="field">
+<!--
     <%= f3.label :name %><br />
+-->
+    ユーザー名<br />
     <%= f3.text_field :name,:value=> @name %>
   </div>
 
 <!-- rating --->
   <div class="field">
+<!--
     <%= f3.label :rating %><br />
-    <%= f3.collection_select( :rating_id, @ratings, :id, :name ) %>
+-->
+    評価<br />
+	<%= f3.collection_select( :rating_id, @ratings, :id, :name ) %>
   </div>
 
 <% end %>

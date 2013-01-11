@@ -1,5 +1,9 @@
 <h1>ランチコメント登録</h1>
-
+<div id="menu">
+  <ul>
+   <li><%= link_to 'TOP', {:controller => "summary_lists"} %></li>
+  </ul>
+</div>
 <TABLE BORDER=0 CELLPADDING=5>
 <TR BGCOLOR="LIME">
 <TD>レストラン名</TD>
@@ -16,6 +20,3 @@
 </p>
 
 <%= render 'formadd' %>
-
-<br />
-<%= link_to '検索・一覧画面へ', {:controller => "summary_lists"} %><br />

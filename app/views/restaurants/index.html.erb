@@ -1,4 +1,10 @@
 <h1>レストラン 一覧</h1>
+<div id="menu">
+  <ul>
+   <li><%= link_to 'TOP', {:controller => "summary_lists"} %></li>
+  </ul>
+</div>
+<br>
 
 <table>
   <tr>
@@ -48,6 +54,3 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to '検索・一覧画面へ', {:controller => "summary_lists"} %><br />

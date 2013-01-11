@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>ランチ名</b>
+  <b><%= label :lunch, :name %>:</b>
   <%= @lunch.name %>
 </p>
 
 <p>
-  <b>価格</b>
+  <b><%= label :lunch, :price %>:</b>
   <%= @lunch.price %>
 </p>
 
 <p>
-  <b>ジャンル</b>
+  <b><%= label :lunch, :genre_id %>:</b>
   <% if @lunch.genre %>
     <%= @lunch.genre.name %>
   <% end %>  
