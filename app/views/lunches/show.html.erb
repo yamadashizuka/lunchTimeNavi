@@ -1,5 +1,20 @@
+<h1>ランチ情報</h1>
+<div id="menu">
+  <ul>
+   <li><%= link_to 'TOP', {:controller => "summary_lists"} %></li>
+  </ul>
+</div>
 <p id="notice"><%= notice %></p>
-
+<table class="restaurant">
+<td>
+  <div class="field">
+  <b><%= label :restaurant, :name %>:</b><br>
+    <%= @restaurant.name %>
+  </div>
+</td>
+</table>
+<table>
+<td class="lunch">
 <p>
   <b><%= label :lunch, :name %>:</b>
   <%= @lunch.name %>
@@ -16,6 +31,6 @@
     <%= @lunch.genre.name %>
   <% end %>  
 </p>
+</TD>
+</table>
 
-<br />
-<%= link_to '検索・一覧画面へ', {:controller => "summary_lists"} %>

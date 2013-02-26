@@ -15,7 +15,9 @@ class LunchCommentsController < ApplicationController
   # GET /lunch_comments/1.json
   def show
     @lunch_comment = LunchComment.find(params[:id])
-
+    @lunch = Lunch.find(@lunch_comment.lunch_id)
+    @restaurant = Restaurant.find(@lunch.restaurant_id)
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @lunch_comment }
@@ -46,6 +48,8 @@ class LunchCommentsController < ApplicationController
   # GET /lunch_comments/1/edit
   def edit
     @lunch_comment = LunchComment.find(params[:id])
+    @lunch = Lunch.find(@lunch_comment.lunch_id)
+    @restaurant = Restaurant.find(@lunch.restaurant_id)
     @ratings = Rating.all
   end
 

@@ -4,19 +4,8 @@
    <li><%= link_to 'TOP', {:controller => "summary_lists"} %></li>
   </ul>
 </div>
-<TABLE BORDER=0 CELLPADDING=5>
-<TR BGCOLOR="LIME">
-<TD>レストラン名</TD>
-<TD><%= @restaurant.name %></TD>
-</TR>
-<TR BGCOLOR="PINK">
-<TD>ランチ名</TD>
-<TD><%= @lunch.name %></TD>
-</TR>
-</TABLE>
-<br/>
 <p>
 新規コメントを登録してください！
 </p>
 
-<%= render 'formadd' %>
+<%= render 'form' %>

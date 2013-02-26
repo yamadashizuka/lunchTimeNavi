@@ -11,7 +11,8 @@
     </div>
   <% end %>
   <%= f.hidden_field :lunch_id %>
-<TABLE BORDER=0 CELLPADDING=10 BGCOLOR="ORANGE"><TR><TD VALIGN="TOP">
+<TABLE>
+<td class="lunch_comment">
  <div class="field">
     <%= f.label :text %><br />
     <%= f.text_area :text , {:maxlength =>255, :size=>"40x10"}%>
@@ -24,8 +25,10 @@
     <%= f.label :rating_id %><br />
     <%= f.collection_select( :rating_id, @ratings, :id, :name, :include_blank => true ) %><br />
   </div>
+</td>
+</table>
   <div class="actions">
-    <%= f.submit "登録" %>
+    <%= f.submit "tesut" %>
   </div>
 <% end %>
 </TABLE>

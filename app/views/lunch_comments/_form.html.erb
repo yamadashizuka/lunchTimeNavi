@@ -10,10 +10,24 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <%= f.hidden_field :lunch_id %>
+<TABLE class="restaurant">
+<TD>
+  <b><%= label :restaurant, :name %>:</b><br>
+<%= @restaurant.name %>
+</TD>
+</table>
+<table>
+<table class="lunch">
+<TD>ランチ名<br>
+<%= @lunch.name %></TD>
+</TR>
+</TABLE>
+<br/>
+<td class="lunch_comment">
+ <div class="field">
     <%= f.label :text %><br />
-    <%= f.text_area :text , {:maxlength =>255, :size=>"40x10"}%>
+    <%= f.text_area :text , {:maxlength =>255, :size=>"20x5"}%>
   </div>
   <div class="field">
     <%= f.label :name %><br />
@@ -21,9 +35,12 @@
   </div>
   <div class="field">
     <%= f.label :rating_id %><br />
-    <%= f.collection_select( :rating_id, @ratings, :id, :name, :include_blank => true ) %>
+    <%= f.collection_select( :rating_id, @ratings, :id, :name, :include_blank => true ) %><br />
   </div>
+</td>
+</table>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "登録" %>
   </div>
 <% end %>
+</TABLE>

@@ -38,7 +38,7 @@
   </div>
   <div class="field">
     <%= f.label :memo %><br />
-    <%= f.text_field :memo %>
+    <%= f.text_area :memo , {:maxlength =>255, :size=>"20x5"}%>
   </div>
   <div class="field">
     <%= f.label :url %><br />

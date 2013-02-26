@@ -1,8 +1,12 @@
+<h1>レストラン情報</h1>
+<div id="menu">
+  <ul>
+   <li><%= link_to 'TOP', {:controller => "summary_lists"} %></li>
+  </ul>
+</div>
 <p id="notice"><%= notice %></p>
 
-<TABLE BORDER=0 CELLPADDING=10 BGCOLOR="LIME">
-<TR>
-<TD VALIGN="TOP">
+<TABLE class="restaurant"><TR><TD VALIGN="TOP">
 <p>
   <b><%= label :restaurant, :name %>:</b>
   <%= @restaurant.name %>
@@ -27,12 +31,16 @@
 <TD VALIGN="TOP">
 <p>
   <b><%= label :restaurant, :reservation %>:</b>
-  <%= @restaurant.reservation %>
+  <% if @restaurant.reservation = true %>
+   ○
+  <% else %>
+   ×
+  <% end %>
 </p>
 
 <p>
   <b><%= label :restaurant, :memo %>:</b>
-  <%= @restaurant.memo %>
+  <%== convertBR(@restaurant.memo) %>
 </p>
 
 <p>
@@ -92,5 +100,3 @@
   <%= @restaurant.endTime %>
 </p>
 </TABLE>
-<br />
-<%= link_to '検索・一覧画面へ', {:controller => "summary_lists"} %>

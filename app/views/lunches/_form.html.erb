@@ -10,12 +10,17 @@
       </ul>
     </div>
   <% end %>
-  
+<table class="restaurant">
+<td>
   <div class="field">
     <%= f.label :restaurant %><br />
     <%= @restaurant.name %>
     <%= hidden_field :lunch, :restaurant_id %>
   </div>
+<td>
+</table>
+<table>
+<td class="lunch">  
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -32,6 +37,8 @@
     <%= f.label :genre_id %><br />
     <%= f.collection_select( :genre_id, @genres, :id, :name, :include_blank => true ) %>
   </div>
+</td>
+</table>
   <div class="actions">
     <%= f.submit %>
   </div>
