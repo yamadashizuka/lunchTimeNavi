@@ -4,7 +4,8 @@ class Lunch < ActiveRecord::Base
   has_many :lunch_comments
   before_destroy :ensure_not_referenced_by_any_lunch_comment
 
-  attr_accessible :name, :price, :genre_id, :restaurant_id, :withdrink
+    attr_accessible :name, :price, :genre_id, :restaurant_id, :withdrink, :image
+    mount_uploader :image,ImageUploader
   
   private
   

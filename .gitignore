@@ -18,3 +18,5 @@
 setproxy.bat
 resetproxy.bat
 
+#Ignore upload image files.
+/public/uploads
