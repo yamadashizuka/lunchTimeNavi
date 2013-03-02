@@ -21,6 +21,11 @@
 </p>
 
 <p>
+  <b><%= label :lunch, :image %>:</b>
+  <%= image_tag @lunch.image_url.to_s %>
+</p>
+
+<p>
   <b><%= label :lunch, :price %>:</b>
   <%= @lunch.price %>
 </p>
