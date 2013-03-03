@@ -37,7 +37,7 @@ table {
     box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
 }
 
-/*レストラン情報のバックグラウンド*/
+/*レストラン情報の表示テーブルレイアウト*/
 table.restaurant{
   border: 1px, solid, #888888;
   background: #aaffaa;
@@ -46,28 +46,45 @@ table.restaurant{
     -webkit-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
 }
+table.restaurant .tdh{
+  background: #77ff77;
+  padding: 10px;
+  font-weight: bold;
+ }
 
-/*ランチ情報のバックグラウンド*/
-.lunch{
+
+
+/*ランチ情報の表示テーブルレイアウト*/
+table.lunch{
   border: 1px, solid, #888888;
   background: #ffaaaa;
-  padding:15px;/*内側の余白*/
-
+  padding:15px;
     -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
     -webkit-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
 }
 
-/*ランチコメント情報のバックグラウンド*/
+table.lunch .tdh{
+  background: #ff9999;
+  padding: 10px;
+  font-weight: bold;
+ }
+
+/*ランチコメント情報の表示テーブルレイアウト*/
 .lunch_comment{
   border: 1px, solid, #888888;
   background: #ffaa22;
-  padding:15px;/*内側の余白*/
-
+  padding:15px;
     -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
     -webkit-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
     border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
 }
+
+table.lunch_comment .tdh{
+  background: #ff9911;
+  padding: 10px;
+  font-weight: bold;
+ }
 
 
 /*ボタンの設定…未実装です。*/
@@ -124,9 +141,9 @@ table.restaurant{
     border-bottom:1px solid #9999ff;
     border-right:1px solid #ffffff;
     display:block;
-    line-height:22px;
+    line-height:32px;
     text-align:center;
-    font-size:12px;
+    font-size:20px;
     font-weight:bold;
     color:#ffffff;
     background-color:#9999ff;
@@ -135,5 +152,25 @@ table.restaurant{
 #menu a:hover {
     color:#9999ff;
     background-color:#ffffff;
+}
+
+/*コンテンツの左右分割*/
+div#layout_left{
+/*width:50%;*/
+float:left;
+}
+
+div#layout_left_min{
+width:300px;
+float:left;
+}
+
+div#layout_right{
+/*width:50%;*/
+float:right;
+}
+
+.layout_clear{
+clear: both;
 }
 

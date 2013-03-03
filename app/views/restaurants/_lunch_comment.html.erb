@@ -1,0 +1,42 @@
+<div class="field">
+<table class="lunch_comment">
+  <tr>
+    <td class="tdh">
+<!--
+    <%= f3.label :text %>
+-->
+    コメント
+   </td>
+   <td>
+    <%= f3.text_area :text, :size=>"45x4" %>
+   </td>
+ </tr>
+
+
+  <tr>
+    <td class="tdh">
+<!--
+    <%= f3.label :name %>
+-->
+    ユーザー名
+   </td>
+   <td>
+    <%= f3.text_field :name,:value=> @name %>
+   </td>
+ </tr>
+
+
+  <tr>
+    <td class="tdh">
+<!--
+    <%= f3.label :rating %>
+-->
+    評価
+   </td>
+   <td>
+	<%= f3.collection_select( :rating_id, @ratings, :id, :name ) %>
+   </td>
+ </tr>
+
+</table>
+</div>

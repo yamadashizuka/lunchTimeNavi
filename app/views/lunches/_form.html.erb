@@ -10,39 +10,60 @@
       </ul>
     </div>
   <% end %>
-<table class="restaurant">
-<td>
-  <div class="field">
-    <%= f.label :restaurant %><br />
-    <%= @restaurant.name %>
-    <%= hidden_field :lunch, :restaurant_id %>
-  </div>
-<td>
-</table>
-<table>
-<td class="lunch">  
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :withdrink %><br />
-    <%= f.check_box :withdrink %>
-  </div>
-  <div class="field">
-    <%= f.label :genre_id %><br />
-    <%= f.collection_select( :genre_id, @genres, :id, :name, :include_blank => true ) %>
-  </div>
-</td>
-</table>
+
+<%= render "restaurant" %>
+
+<div class="field">
+ <%= hidden_field :lunch, :restaurant_id %>
+  <table class="lunch">
+    <tr>
+      <td class="tdh">  
+        <%= f.label :name %>
+	  </td>
+	  <td>
+        <%= f.text_field :name %>
+	  </td>
+	</tr>
+
+    <tr>
+      <td class="tdh">  
+	    <%= f.label :price %>
+	  </td>
+	  <td>
+        <%= f.number_field :price %>
+	  </td>
+	</tr>
+
+
+    <tr>
+      <td class="tdh">  
+	    <%= f.label :image %>
+	  </td>
+	  <td>
+        <%= f.file_field :image %>
+	  </td>
+	</tr>
+
+    <tr>
+      <td class="tdh">  
+	    <%= f.label :withdrink %>
+	  </td>
+	  <td>
+        <%= f.check_box :withdrink %>
+	  </td>
+	</tr>
+
+    <tr>
+      <td class="tdh">  
+    	<%= f.label :genre_id %>
+	  </td>
+	  <td>
+        <%= f.collection_select( :genre_id, @genres, :id, :name, :include_blank => true ) %>
+	  </td>
+	</tr>
+  </table>
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

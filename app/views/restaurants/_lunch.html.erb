@@ -1,0 +1,52 @@
+<div class="field">
+<table class="lunch">
+  <tr>
+    <td class="tdh">
+<!--
+	<%= f2.label :name %>
+-->
+    ランチ名
+   </td>
+   <td>
+	<%= f2.text_field :name %>
+   </td>
+ </tr>
+
+ <tr>
+    <td class="tdh">
+<!--
+    <%= f2.label :price %>
+-->
+    価格
+    </td>
+	<td>
+    <%= f2.number_field :price %>
+    </td>
+  </tr>
+
+ <tr>
+    <td class="tdh">
+<!--
+    <%= f2.label :withdrink %>
+-->
+    ドリンク付き
+    </td>
+	<td>
+    <%= f2.check_box :withdrink %>
+    </td>
+	</tr>
+
+
+ <tr>
+    <td class="tdh">
+<!--
+    <%= f2.label :genre %>
+-->
+    ジャンル
+    </td>
+	<td>
+  	<%= f2.collection_select( :genre_id, @genres, :id, :name ) %>
+    </td>
+   </tr>
+</table>
+</div>

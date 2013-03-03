@@ -10,10 +10,24 @@
       </ul>
     </div>
   <% end %>
-
+<div id="layout_left">
+<!-- restaurant -->
 <%= render 'restaurant' ,:f=>f %>
+</div>
 
-  <div class="actions">
+<!-- lunch --->
+<div id="layout_right">
+  <%= f.fields_for :lunch do |f2| %>
+    <%= render "lunch" , :f2=>f2%>
+
+    <%= f2.fields_for :lunch_comment do |f3| %>
+      <%= render "lunch_comment" , :f3=>f3%>
+    <% end %>
+<% end %>
+</div>
+
+
+  <div class="actions layout_clear">
     <%= f.submit %>
   </div>
 <% end %>

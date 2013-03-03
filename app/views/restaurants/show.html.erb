@@ -6,97 +6,123 @@
 </div>
 <p id="notice"><%= notice %></p>
 
-<TABLE class="restaurant"><TR><TD VALIGN="TOP">
-<p>
-  <b><%= label :restaurant, :name %>:</b>
-  <%= @restaurant.name %>
-</p>
+<table class="restaurant">
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :name %>
+    </td>
+    <td>
+	  <%= @restaurant.name %>
+    </td>
+  </tr>
 
-<p>
-  <b><%= label :restaurant, :postcode %>:</b>
-  <%= @restaurant.postcode %>
-</p>
+  <tr>
+    <td class="tdh">
+	  <%= label :restaurant, :address %>
+    </td>
+    <td>
+      <% unless @restaurant.postcode.nil? %> 
+        〒<%= @restaurant.postcode %><br>
+      <% end %>
+      <%= @restaurant.address %>
+    </td>
+  </tr>
 
-<p>
-  <b><%= label :restaurant, :address %>:</b>
-  <%= @restaurant.address %>
-</p>
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :telephoneNumber %>
+    </td>
+    <td>
+      <%= @restaurant.telephoneNumber %>
+    </td>
+  </tr>
 
-<p>
-  <b><%= label :restaurant, :telephoneNumber %>:</b>
-  <%= @restaurant.telephoneNumber %>
-</p>
-</TD>
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :reservation %>
+    </td>
+　  <td>
+      <%= display_reservation(@restaurant.reservation) %>
+    </td>
+  </tr>
 
-<TD VALIGN="TOP">
-<p>
-  <b><%= label :restaurant, :reservation %>:</b>
-  <% if @restaurant.reservation = true %>
-   ○
-  <% else %>
-   ×
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :memo %>
+	</td>
+    <td>
+      <%== convertBR(@restaurant.memo) %>
+	</td>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :url %>
+    </td>
+	<td>
+      <%= @restaurant.url %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :email %>
+    </td>
+	<td>
+      <%= @restaurant.email %>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :bussinessday %>
+	</td>
+
+	<td>
+    <%= label :restaurant, :sundayUp %>:
+    <%= display_bool(@restaurant.sundayUp) %>
+
+	<%= label :restaurant, :mondayUp %>:
+    <%= display_bool(@restaurant.mondayUp) %>
+
+    <%= label :restaurant, :tuesdayUp %>:
+    <%= display_bool(@restaurant.tuesdayUp) %>
+
+    <%= label :restaurant, :wednesdayUp %>:
+    <%= display_bool(@restaurant.wednesdayUp) %>
+
+    <%= label :restaurant, :thursdayUp %>:
+    <%= display_bool(@restaurant.thursdayUp) %>
+
+    <%= label :restaurant, :fridayUp %>:
+    <%= display_bool(@restaurant.fridayUp) %>
+
+    <%= label :restaurant, :saturdayUp %>:
+    <%= display_bool(@restaurant.saturdayUp) %>
+    </td>
+  </tr>
+ 
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :lunchtime %>:
+	</td>
+
+    <td> 
+	<%= @restaurant.startTime.strftime('%H:%M') %>
+    　〜　
+    <%= @restaurant.endTime.strftime('%H:%M') %>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :congestion_id%>
+	</td>
+	<td>
+  <% if @restaurant.congestion %>
+	<%= @restaurant.congestion.name %>
   <% end %>
-</p>
+	</td>
+  </div>
 
-<p>
-  <b><%= label :restaurant, :memo %>:</b>
-  <%== convertBR(@restaurant.memo) %>
-</p>
-
-<p>
-  <b><%= label :restaurant, :url %>:</b>
-  <%= @restaurant.url %>
-</p>
-
-<p>
-  <b><%= label :restaurant, :email %>:</b>
-  <%= @restaurant.email %>
-</p>
-</TD>
-
-<TD VALIGN="TOP">
-<p>
-  <b><%= label :restaurant, :sundayUp %>:</b>
-  <%= @restaurant.sundayUp %>
-</p>
-
-<p>
-  <b><%= label :restaurant, :mondayUp %>:</b>
-  <%= @restaurant.mondayUp %>
-</p>
-
-<p>
-  <b><%= label :restaurant, :tuesdayUp %>:</b>
-  <%= @restaurant.tuesdayUp %>
-</p>
-
-<p>
-  <b><%= label :restaurant, :wednesdayUp %>:</b>
-  <%= @restaurant.wednesdayUp %>
-</p>
-
-<p>
-  <b><%= label :restaurant, :thursdayUp %>:</b>
-  <%= @restaurant.thursdayUp %>
-</p>
-
-<p>
-  <b><%= label :restaurant, :fridayUp %>:</b>
-  <%= @restaurant.fridayUp %>
-</p>
-
-<p>
-  <b><%= label :restaurant, :saturdayUp %>:</b>
-  <%= @restaurant.saturdayUp %>
-</p>
-
-<p>
-  <b><%= label :restaurant, :startTime %>:</b>
-  <%= @restaurant.startTime %>
-</p>
-
-<p>
-  <b><%= label :restaurant, :endTime %>:</b>
-  <%= @restaurant.endTime %>
-</p>
 </TABLE>

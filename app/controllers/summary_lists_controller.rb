@@ -10,7 +10,7 @@ class SummaryListsController < ApplicationController
     @commentRegistDateTo = Date.today.strftime("%Y/%m/%d").to_s
 
     search_commentRegistDateFrom = @commentRegistDateFrom.gsub(/\//, "-") + " 00:00:00.000000"
-    search_commentRegistDateTo = @commentRegistDateTo.gsub(/\//, "-") + " 00:00:00.000000"
+    search_commentRegistDateTo = @commentRegistDateTo.gsub(/\//, "-") + " 23:59:59.000000"
 
     @ary = Array.new
 

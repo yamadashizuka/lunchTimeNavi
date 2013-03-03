@@ -10,35 +10,47 @@
       </ul>
     </div>
   <% end %>
+<div class="field"> 
   <%= f.hidden_field :lunch_id %>
-<TABLE class="restaurant">
-<TD>
-  <b><%= label :restaurant, :name %>:</b><br>
-<%= @restaurant.name %>
-</TD>
-</table>
-<table>
-<table class="lunch">
-<TD>ランチ名<br>
-<%= @lunch.name %></TD>
-</TR>
-</TABLE>
-<br/>
-<td class="lunch_comment">
- <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_area :text , {:maxlength =>255, :size=>"20x5"}%>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :rating_id %><br />
-    <%= f.collection_select( :rating_id, @ratings, :id, :name, :include_blank => true ) %><br />
-  </div>
+</div>
+
+<%= render "info" %>
+
+<div class="field">
+<table class="lunch_comment">
+  <tr>
+    <td class="tdh">
+      <%= f.label :text %>
+    </td>
+    <td>
+      <%= f.text_area :text , {:maxlength =>255, :size=>"20x5"}%>
+	</td>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+    	<%= f.label :name %><br />
+    </td>
+    <td>
+    	<%= f.text_field :name %>
+	</td>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+      <%= f.label :rating_id %><br />
+    </td>
+    <td>
+      <%= f.collection_select( :rating_id, @ratings, :id, :name, :include_blank => true ) %><br />
+	</td>
+  </tr>
+
+
+
 </td>
 </table>
+</div>
+
   <div class="actions">
     <%= f.submit "登録" %>
   </div>
