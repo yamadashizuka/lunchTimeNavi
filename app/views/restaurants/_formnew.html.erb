@@ -12,11 +12,11 @@
   <% end %>
 
 <!-- restaurant -->
-<div id="layout_left">
+<div class="layout_left">
   <%= render 'restaurant' ,:f=>f %>
 </div>
 
-<div id="layout_left">
+<div class="layout_left">
 <!-- lunch --->
   <%= f.fields_for :lunch do |f2| %>
     <%= render "lunch" , :f2=>f2%>
@@ -29,7 +29,7 @@
 
 
   <div class="actions layout_clear">
-    <%= f.submit "登録"%>
+    <%= f.submit "登録" ,:class=>"stressbtn"%>
   </div>
 <% end %>
 
