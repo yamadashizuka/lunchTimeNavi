@@ -24,6 +24,20 @@
     </td>
   </tr>
 
+
+    <tr>
+      <td class="tdh">  
+<!--
+	    <%= f2.label :image %>
+-->
+		写真
+	  </td>
+	  <td>
+        <%= f2.file_field :image %>
+	  </td>
+	</tr>
+
+
  <tr>
     <td class="tdh">
 <!--
@@ -35,8 +49,6 @@
     <%= f2.check_box :withdrink %>
     </td>
 	</tr>
-
-
  <tr>
     <td class="tdh">
 <!--
@@ -48,5 +60,6 @@
   	<%= f2.collection_select( :genre_id, @genres, :id, :name ) %>
     </td>
    </tr>
+
 </table>
 </div>

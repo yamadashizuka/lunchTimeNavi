@@ -39,7 +39,7 @@ table {
 
 /*レストラン情報の表示テーブルレイアウト*/
 table.restaurant{
-  border: 1px, solid, #888888;
+/*  border: 1px solid #888888; */
   background: #aaffaa;
   padding: 15px;
     -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
@@ -56,7 +56,7 @@ table.restaurant .tdh{
 
 /*ランチ情報の表示テーブルレイアウト*/
 table.lunch{
-  border: 1px, solid, #888888;
+/*  border: 1px solid #888888; */
   background: #ffaaaa;
   padding:15px;
     -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
@@ -72,7 +72,7 @@ table.lunch .tdh{
 
 /*ランチコメント情報の表示テーブルレイアウト*/
 .lunch_comment{
-  border: 1px, solid, #888888;
+/*  border: 1px solid #888888; */
   background: #ffaa22;
   padding:15px;
     -moz-border-radius: 15px 15px 15px 15px / 15px 15px 15px 15px;
@@ -155,18 +155,12 @@ table.lunch_comment .tdh{
 }
 
 /*コンテンツの左右分割*/
-div#layout_left{
-/*width:50%;*/
-float:left;
+div.layout_left{
+    float:left;
+    margin:5;
 }
 
-div#layout_left_min{
-width:300px;
-float:left;
-}
-
-div#layout_right{
-/*width:50%;*/
+div.layout_right{
 float:right;
 }
 
