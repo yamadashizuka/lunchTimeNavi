@@ -14,6 +14,7 @@ class LunchesController < ApplicationController
   # GET /lunches/1.json
   def show
     @lunch = Lunch.find(params[:id])
+    @restaurant = Restaurant.find(@lunch.restaurant_id)
 
     respond_to do |format|
       format.html # show.html.erb

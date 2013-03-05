@@ -1,21 +1,50 @@
+<h1>ランチ情報</h1>
+<div id="menu">
+  <ul>
+   <li><%= link_to 'TOP', {:controller => "summary_lists"} %></li>
+  </ul>
+</div>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b><%= label :lunch, :name %>:</b>
-  <%= @lunch.name %>
-</p>
+<%= render "restaurant" %>
 
-<p>
-  <b><%= label :lunch, :price %>:</b>
-  <%= @lunch.price %>
-</p>
+<table class="lunch">
+  <tr>
+    <td class="tdh">
+      <%= label :lunch, :name %>
+    </td>
+    <td>
+      <%= @lunch.name %>
+    </td>
+  </tr>
 
-<p>
-  <b><%= label :lunch, :genre_id %>:</b>
-  <% if @lunch.genre %>
-    <%= @lunch.genre.name %>
-  <% end %>  
-</p>
+  <tr>
+    <td class="tdh">
+      <%= label :lunch, :image %>
+	</td>
+    <td>
+      <%= image_tag @lunch.image_url.to_s ,:size=>"300x300"%>
+    </td>
+  </tr>
 
-<br />
-<%= link_to '検索・一覧画面へ', {:controller => "summary_lists"} %>
+  <tr>
+    <td class="tdh">
+      <%= label :lunch, :price %>
+	</td>
+    <td>
+      <%= @lunch.price %>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td class="tdh">
+      <%= label :lunch, :genre_id %>
+	</td>
+    <td>
+      <% if @lunch.genre %>
+        <%= @lunch.genre.name %>
+      <% end %>  
+    </td>
+  </tr>
+</table>

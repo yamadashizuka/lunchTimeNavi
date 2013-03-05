@@ -83,7 +83,6 @@ table.restrantTable th, table.restrantTable td {
 	    }
 	}
 </script>
-
 <h1>ランチ検索</h1>
 <br/>
 <%= session[:currentUser].name %> さん、今日は何を食べましょうか？
@@ -107,10 +106,11 @@ table.restrantTable th, table.restrantTable td {
   <%= text_field :search, :commentRegistDateTo, :size => "12px", :id => "datepickerTo", :value=>@commentRegistDateTo %>
   <br />
   <br />
-  <%= submit_tag "検索" %>
+  <%= submit_tag "検索" , :class=>"stressbtn"%>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="reset" name="reset" value="リセット" />
-  <input type="button" name="clear" value="クリア" onclick="clearFormAll();" />
+  <input type="reset" name="reset" value="リセット"  class="defaultbtn"/>
+  <input type="button" name="clear" value="クリア" onclick="clearFormAll();" class="defaultbtn"/>
+  </div>
   </div>
 <% end %>
 <br>

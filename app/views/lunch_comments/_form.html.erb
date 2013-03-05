@@ -10,20 +10,49 @@
       </ul>
     </div>
   <% end %>
+<div class="field"> 
+  <%= f.hidden_field :lunch_id %>
+</div>
 
-  <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_area :text , {:maxlength =>255, :size=>"40x10"}%>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :rating_id %><br />
-    <%= f.collection_select( :rating_id, @ratings, :id, :name, :include_blank => true ) %>
-  </div>
+<%= render "info" %>
+
+<div class="field">
+<table class="lunch_comment">
+  <tr>
+    <td class="tdh">
+      <%= f.label :text %>
+    </td>
+    <td>
+      <%= f.text_area :text , {:maxlength =>255, :size=>"20x5"}%>
+	</td>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+    	<%= f.label :name %><br />
+    </td>
+    <td>
+    	<%= f.text_field :name %>
+	</td>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+      <%= f.label :rating_id %><br />
+    </td>
+    <td>
+      <%= f.collection_select( :rating_id, @ratings, :id, :name, :include_blank => true ) %><br />
+	</td>
+  </tr>
+
+
+
+</td>
+</table>
+</div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "登録" ,:class=>"stressbtn"%>
   </div>
 <% end %>
+</TABLE>

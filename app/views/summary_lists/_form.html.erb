@@ -59,13 +59,20 @@
             <dt>（未登録）</dt>
           <% else %>
             <% if lunch.id != old_lunchid %>
+			  <div class="layout_left">
               <dt><%= truncate(lunch.name, {:length => 60}) %></dt>
               <dd><%= lunch.genre.name %></dd>
               <dd><%= number_to_currency(lunch.price, :unit => '円', :precision =>0, :format => '%n%u') %></dd>
               <% if lunch.withdrink %>
-              <dd>(ドリンクサービス有り)</dd>
+    	          <dd>(ドリンクサービス有り)</dd>
               <% end %>
-            <% end %>
+              </div>
+			  <% unless lunch.image_url.to_s.blank? %> 
+				<div class="layout_right">
+				  <%= image_tag lunch.image_url.to_s  , :size=>"80x80" %>
+				</div>
+			  <% end %>
+			<% end %>
           <% end %>
         <dl>
       </td>

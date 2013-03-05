@@ -1,0 +1,112 @@
+<TABLE class="restaurant">
+  <tr>
+    <td class="tdh">
+      <%= f.label :name %>
+    </td>
+    <td>
+    <%= f.text_field :name %>
+    </td>
+  </tr>
+
+   <tr>
+    <td class="tdh">
+	  <%= f.label :address %>
+    </td>
+    <td>
+      〒<%= f.text_field :postcode, :size=>8 %><br>
+    <%= f.text_field :address %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+       <%= f.label :telephoneNumber %>
+    </td>
+    <td>
+      <%= f.telephone_field :telephoneNumber %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+      <%= f.label :reservation %>
+    </td>
+    <td>
+      <%= f.check_box :reservation %>
+    </td>
+   </tr>
+
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :memo %>
+	</td>
+    <td>
+      <%= f.text_area :memo , {:maxlength =>255, :size=>"20x5"}%>
+	</td>
+  </tr>
+  
+  <tr>
+    <td class="tdh">
+      <%= f.label :url %>
+    </td>
+	<td>
+      <%= f.url_field :url %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+    <%= f.label :email %>
+    </td>
+	<td>
+    <%= f.email_field :email %>
+    </td>
+  </tr>
+
+	<td class="tdh">
+      <%= label :restaurant, :bussinessday %>
+	</td>
+	<td>
+    <%= f.label :sundayUp %>
+    <%= f.check_box :sundayUp %>　
+
+	<%= f.label :mondayUp %>
+    <%= f.check_box :mondayUp %>　
+
+	<%= f.label :tuesdayUp %>
+    <%= f.check_box :tuesdayUp %>　
+
+	<%= f.label :wednesdayUp %>
+    <%= f.check_box :wednesdayUp %>　
+
+	<%= f.label :thursdayUp %>
+    <%= f.check_box :thursdayUp %>　
+
+	<%= f.label :fridayUp %>
+    <%= f.check_box :fridayUp %>　
+
+	<%= f.label :saturdayUp %>
+    <%= f.check_box :saturdayUp %>
+  </td>
+</tr>
+
+  <tr>
+    <td class="tdh">
+      <%= label :restaurant, :lunchtime %>
+	</td>
+
+    <td> 
+    <%= f.time_select :startTime, :default => Time.gm(2012, 11, 11, 11, 00, 00) , :minute_step => 15 %>
+    　〜　
+    <%= f.time_select :endTime, :default => Time.gm(2012, 11, 11, 15, 00, 00) , :minute_step => 15 %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="tdh">
+	<%= f.label :congestion_id %>
+	</td>
+	<td>
+    <%= f.collection_select( :congestion_id, @congestions, :id, :name, :include_blank => true ) %>
+	</td>
+</table>

@@ -25,6 +25,8 @@ ja:
         endTime: 'To'
         postcode: '郵便番号'
         congestion_id: '混雑度'
+        lunchtime: 'ランチ営業時間'
+        bussinessday: 'ランチ営業日'
       lunch:
         restaurant: 'レストラン名'
         name: 'ランチ名'
@@ -32,6 +34,7 @@ ja:
         restaurant_id: 'レストラン名'
         genre_id: 'ジャンル'
         withdrink: 'ドリンク付き'
+        image: '写真'
       lunch_comment:
         text: 'コメント'
         name: 'ユーザー名'

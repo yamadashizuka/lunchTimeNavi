@@ -11,9 +11,24 @@
     </div>
   <% end %>
 
-<%= render 'restaurant' ,:f=>f %>
+<!-- restaurant -->
+<div class="layout_left">
+  <%= render 'restaurant' ,:f=>f %>
+</div>
 
-  <div class="actions">
+<div class="layout_left">
+<!-- lunch --->
+  <%= f.fields_for :lunch do |f2| %>
+    <%= render "lunch" , :f2=>f2%>
+<!-- lunch_comment --->
+    <%= f2.fields_for :lunch_comment do |f3| %>
+      <%= render "lunch_comment" , :f3=>f3%>
+    <% end %>
+<% end %>
+</div>
+
+
+  <div class="actions layout_clear">
     <%= f.submit "登録" ,:class=>"stressbtn"%>
   </div>
 <% end %>

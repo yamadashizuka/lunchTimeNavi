@@ -1,20 +1,39 @@
+<h1>ランチコメント情報</h1>
+<div id="menu">
+  <ul>
+   <li><%= link_to 'TOP', {:controller => "summary_lists"} %></li>
+  </ul>
+</div>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b><%= label :lunch_comment, :text %>:</b>
-  <%= @lunch_comment.text %>
-</p>
+<%= render "info" %>
+<table class="lunch_comment">
+  <tr>
+    <td class="tdh">
+      <%= label :lunch_comment, :text %>
+    </td>
+    <td>
+      <%== convertBR(@lunch_comment.text) %>
+    </td>
+  </tr>
 
-<p>
-  <b><%= label :lunch_comment, :name %>:</b>
-  <%= @lunch_comment.name %>
-</p>
+  <tr>
+    <td class="tdh">
+      <%= label :lunch_comment, :name %>
+    </td>
+    <td>
+      <%= @lunch_comment.name %>
+    </td>
+  </tr>
 
-<p>
-  <b><%= label :lunch_comment, :rating_id %>:</b>
-  <% if @lunch_comment.rating_id %> 
-    <%= @lunch_comment.rating.name %>
-  <% end %>
-  
-</p>
-<%= link_to '検索・一覧画面へ', {:controller => "summary_lists"} %>
+  <tr>
+    <td class="tdh">
+      <%= label :lunch_comment, :rating_id %>
+    </td>
+    <td>
+      <% if @lunch_comment.rating_id %> 
+        <%= @lunch_comment.rating.name %>
+      <% end %>
+    </td>
+  </tr>
+</table>
